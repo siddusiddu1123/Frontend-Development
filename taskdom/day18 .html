@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 40px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            background: #faf8f8;
+            color: #0f0f0f;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgb(8, 8, 8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: rgb(10, 226, 108);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-slider-image-1.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            align-items: center;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 30px;
+
+        }
+
+        .hero-content h1 {
+            font-size: 100px;
+            color: #333;
+
+        }
+
+        .hero-content p {
+            color: #666;
+            font-size: 27px;
+        }
+
+        .hero-content button {
+            background: #8bc34a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero-content button:hover {
+            background: #7cb342;
+        }
+
+
+
+        /* Section Layout */
+        .about-section {
+            height: 100vh;
+            background: white;
+            align-items: center;
+            text-align: center;
+            line-height: 50px;
+
+        }
+
+        .about-section h2 {
+            font-size: 50px;
+        }
+
+        .about-section p {
+            color: #666;
+            font-size: 27px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px;
+            width: 100%;
+            line-height: 1.9;
+        }
+
+
+        .card {
+            width: 40%;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .card h3 {
+            margin: 20px 0 10px;
+            font-size: 22px;
+            color: #333;
+        }
+
+
+        .card p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .blog {
+            margin-top: 40px;
+            margin-bottom: 260px;
+            height: 100vh;
+            background: url('https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-slider-image-1.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            align-items: center;
+            text-align: center;
+            line-height: 100px;
+
+
+        }
+
+
+        .blog h2 {
+            font-size: 50px;
+
+        }
+
+        .blog p {
+            color: #666;
+            font-size: 27px;
+
+        }
+
+        .cards1 {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px;
+        }
+
+        /* Card */
+        .card1 {
+            background: #fff;
+            width: 300px;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Title */
+        .card1 h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Text */
+        .card1 p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Author */
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .author img {
+            border-radius: 50%;
+        }
+
+        .author span {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .author .date {
+            margin-left: auto;
+            color: #999;
+        }
+
+        /* Button */
+        .box-button {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .box-button button {
+            background: #8bc34a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .box-button button:hover {
+            background: #0a0a0a;
+        }
+
+
+        .features {
+            background: white;
+            align-items: center;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .featuresh2 {
+            font-size: 50px;
+        }
+
+        .features p {
+            color: #666;
+            font-size: 27px;
+
+        }
+
+        /* Section */
+        .boxes {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px;
+        }
+
+        /* Box */
+        .box {
+            width: 250px;
+            text-align: center;
+        }
+
+        /* Image */
+        .box img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        /* Title */
+        .box h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Text */
+        .box p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* contact */
+        /* Section */
+        .contact-section {
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        /* Heading */
+        .contact-section h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        /* Layout */
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            text-align: left;
+        }
+
+        /* Left */
+        .contact-left {
+            flex: 1;
+        }
+
+        .contact-left h3 {
+            margin-bottom: 15px;
+        }
+
+        .contact-left p {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-left h4 {
+            margin-bottom: 10px;
+        }
+
+        /* Social icons */
+        .social-icons i {
+            margin-right: 15px;
+            color: #666;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: rgb(9, 206, 58);
+        }
+
+        /* Right */
+        .contact-right {
+            flex: 1;
+        }
+
+        .contact-right form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-right input {
+            padding: 12px;
+            border: none;
+            background: #f5f5f5;
+        }
+
+        .contact-right textarea {
+            padding: 12px;
+            border: none;
+            background: #f5f5f5;
+        }
+
+        .contact-right textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        /* Button */
+        .contact-right button {
+            background: #8bc34a;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 200px;
+        }
+
+        /* Organic */
+        /* Section */
+        .organic {
+            padding: 80px 60px;
+            background: #f9f9f9;
+        }
+
+        /* Layout */
+        .organic-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* Left */
+        .organic-left {
+            flex: 1;
+        }
+
+        .organic-left img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Right */
+        .organic-right {
+            flex: 1;
+        }
+
+        .organic-right h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        /* Bars */
+        .bar {
+            margin-bottom: 20px;
+        }
+
+        .bar p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        /* Progress background */
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 10px;
+        }
+
+        /* Fill */
+        .fill {
+            height: 100%;
+            background: #7cb342;
+            border-radius: 10px;
+        }
+
+        /* brands */
+        /* Section */
+        .brands {
+            padding: 80px 60px;
+        }
+
+        /* Layout */
+        .brands-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        /* Left */
+        .brands-left {
+            flex: 1;
+        }
+
+        .brands-left h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        /* Logos Grid */
+        .logos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .logos img {
+            width: 100%;
+            opacity: 1;
+            transition: 0.3s;
+        }
+
+        /* Hover effect */
+        .logos img:hover {
+            opacity: 0.6;
+            transform: scale(1.1);
+        }
+
+        /* Right */
+        .brands-right {
+            flex: 1;
+            text-align: center;
+        }
+
+        .brands-right img {
+            width: 100%;
+        }
+
+        /* footer */
+
+        .footer {
+            background: linear-gradient(to bottom, #2c2c2c, #1a1a1a);
+            color: #ccc;
+            text-align: center;
+            padding: 80px 20px;
+            line-height: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-content h2 {
+            color: white;
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #ccc;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Copyright */
+        .footer p {
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2> Bridge </h2>
+        <ul class="nav-links">
+            <li><a href="#hero">home</a> </li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#news">news</a></li>
+            <li><a href="#story">story</a></li>
+            <li><a href="#contact">contact</a></li>
+            <li><a href="#locations">locations</a></li>
+            <li><a href="#"></a><i class="fa-brands fa-facebook"></i></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
+        </ul>
+    </nav>
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-slider-logo-image-1.png"
+                alt="vegtabels" width="100px" height="106px">
+            <h1>Seattle Organic Market</h1>
+            <p>
+                We are passionate about providing you with a wide range of fresh,
+                healthy, certified organic whole foods.
+            </p>
+            <button>Locations</button>
+
+
+        </div>
+    </section>
+    <!-- about -->
+    <section id="about" class="about-section">
+        <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/home-content-vector-image-1.png"
+            alt="vegtabels" width="100px" height="106px">
+        <h2>Eat clean and green</h2>
+        <p>
+            Vitae turpis massa sed elementum tempus fet scelerisque varius morbi.
+
+        </p>
+        <div class="cards">
+
+            <div class="card">
+                <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-1.jpg"
+                    alt="Plants">
+                <h3>About our shop</h3>
+                <p>
+                    Eu augue ut lectus arcu bibendum. Sollicitudin aliquam ultrices sagittis orci a.
+                    Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum.
+                    Lectus arcu bibendum atusis variusvel quis blandit.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-2.jpg"
+                    alt="Spices">
+                <h3>What we do</h3>
+                <p>
+                    Eu augue ut lectus arcu bibendum. Sollicitudin aliquam ultrices sagittis orci a.
+                    Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum.
+                    Lectus arcu bibendum atusis variusvel quis blandit.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="news" class="blog">
+        <h2>Our Health & Food Blog</h2>
+        <p>Vitae turpis massa sed elementum tempus feugiat scelerisque varius morbi.</p>
+        <div class="cards1">
+            <div class="card1">
+                <h3>Epic summer salad</h3s>
+                    <p>
+                        Tellus cras adipiscing enim eu turpis egestas. Pellentesque habitant morbi tristique senectus et
+                        netus.
+                        Duis at consectetur lorem donec massa. Malesuada fames ac turpis.
+                    </p>
+
+                    <div class="author">
+                        <img src="https://secure.gravatar.com/avatar/7257f6d2ca13e65…63edd8f65b4aefcff78f33eb08d04c323d8?s=30&d=mm&r=g"
+                            alt="gwtham">
+                        <span>Robert Altmany</span>
+                        <span class="date">12 July, 2016</span>
+                    </div>
+            </div>
+
+            <div class="card1">
+                <h3>Garden to table</h3>
+                <p>
+                    Tellus cras adipiscing enim eu turpis egestas. Pellentesque habitant morbi tristique senectus et
+                    netus.
+                    Duis at consectetur lorem donec massa. Malesuada fames ac turpis.
+                </p>
+
+                <div class="author">
+                    <img src="https://secure.gravatar.com/avatar/7257f6d2ca13e65…63edd8f65b4aefcff78f33eb08d04c323d8?s=30&d=mm&r=g"
+                        alt="gowtham">
+                    <span>Robert Altmany</span>
+                    <span class="date">12 July, 2016</span>
+                </div>
+            </div>
+
+            <div class="card1">
+                <h3>Weekly meal plans</h3>
+                <p>
+                    Tellus cras adipiscing enim eu turpis egestas. Pellentesque habitant morbi tristique senectus et
+                    netus.
+                    Duis at consectetur lorem donec massa. Malesuada fames ac turpis.
+                </p>
+
+                <div class="author">
+                    <img src="https://secure.gravatar.com/avatar/7257f6d2ca13e65…63edd8f65b4aefcff78f33eb08d04c323d8?s=30&d=mm&r=g"
+                        alt="gowtham">
+                    <span>Robert Altmany</span>
+                    <span class="date">12 July, 2016</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box-button">
+            <button>Read blog posts</button>
+        </div>
+    </section>
+    <section id="story" class="features">
+        <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/home-content-vector-image-1.png"
+            alt=" gowtham" width="100px" height="106px">
+        <h2>All-organic products</h2>
+        <p>Vitae turpis massa sed elementum tempus fet scelerisque varius morbi.</p>
+        <div class="boxes">
+
+            <div class="box">
+                <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-4.jpg" alt="">
+                <h3>Best organic food</h3>
+                <p>
+                    Far etra diam sit amet nisl suscipit adipiscing. Aliquet nec ullamcorper
+                    sit amet. Tellus integer feugiat.
+                </p>
+            </div>
+
+            <div class="box">
+                <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-5.jpg" alt="">
+                <h3>Feel the nature</h3>
+                <p>
+                    Far etra diam sit amet nisl suscipit adipiscing. Aliquet nec ullamcorper
+                    sit amet. Tellus integer feugiat.
+                </p>
+            </div>
+
+            <div class="box">
+                <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-6.jpg" alt="">
+                <h3>Spices and herbs</h3>
+                <p>
+                    Far etra diam sit amet nisl suscipit adipiscing. Aliquet nec ullamcorper
+                    sit amet. Tellus integer feugiat.
+                </p>
+            </div>
+
+            <div class="box">
+                <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-7.jpg" alt="">
+                <h3>Healthy and easy</h3>
+                <p>
+                    Far etra diam sit amet nisl suscipit adipiscing. Aliquet nec ullamcorper
+                    sit amet. Tellus integer feugiat.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="brands" class="brands">
+
+        <div class="brands-container">
+
+    </section>
+
+    <section id="organic" class="organic">
+
+        <div class="organic-container">
+
+            <div class="brands-right">
+                <img src="	https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-holder-image-1.jpg"
+                    alt="food">
+            </div>
+
+            <!-- Right Content -->
+            <div class="organic-right">
+                <h1>Organic Facts</h1>
+
+                <div class="bar">
+                    <p>Vitamins <span>31%</span></p>
+                    <div class="progress">
+                        <div class="fill" style="width:31%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <p>Minerals <span>52%</span></p>
+                    <div class="progress">
+                        <div class="fill" style="width:52%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <p>Proteins <span>89%</span></p>
+                    <div class="progress">
+                        <div class="fill" style="width:89%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <p>Calories <span>74%</span></p>
+                    <div class="progress">
+                        <div class="fill" style="width:74%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- right Side -->
+        <div class="brands-left">
+            <h1>Brands & Clients</h1>
+
+            <div class="logos">
+                <img src="clients-image-1-hover (1).png" alt="logo1">
+                <img src="clients-image-2-hover (1).png" alt="logo2">
+                <img src="clients-image-1-hover (1).png" alt="logo3">
+                <img src="clients-image-4-hover (1).png" alt="logo4">
+
+                <img src="clients-image-1-hover.png" alt="logo5">
+                <img src="clients-image-2-hover.png" alt="logo6">
+                <img src="clients-image-3-hover.png" alt="logo7">
+                <img src="clients-image-4-hover.png" alt="logo8">
+            </div>
+        </div>
+
+        <!-- left Side -->
+        <div class="brands-right">
+            <img src="https://bridge71.qodeinteractive.com/wp-content/uploads/2016/07/main-home-image-9.jpg" alt="food">
+        </div>
+
+        </div>
+
+    </section>s
+
+    <section id="contact" class="contact-section">
+
+        <h1>Contact Our Store</h1>
+        <p class="subtitle">
+            Vitae turpis massa sed elementum tempus fet scelerisque varius morbi.
+        </p>
+
+        <div class="contact-container">
+
+            <!-- Left Side -->
+            <div class="contact-left">
+                <h3>Call our shop: 555 786</h3>
+
+                <p>
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh.
+                    Urna molestie at elementum eu facilisis sed odio morbi.
+                </p>
+
+                <h4>Social links:</h4>
+
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-chrome"></i>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="contact-right">
+                <form>
+                    <input type="text" placeholder="Your full name">
+                    <input type="email" placeholder="Your e-mail adress">
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">Send message now</button>
+                </form>
+            </div>
+
+        </div>
+        <br> <br>
+        <iframe
+            src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d486755.8726915849!2d78.0927367502988!3d17.613166683568767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9189f1a2ac79%3A0x6e3ed6f31d40a2e1!2sKukatpally%20Housing%20Board%20Colony%2C%20K%20P%20H%20B%20Phase%209%2C%20Kukatpally%2C%20Hyderabad%2C%20Telangana%20500085!5e0!3m2!1sen!2sin!4v1774338724667!5m2!1sen!2sin"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- footer -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+            <h2>Bridge</h2>
+
+            <p class="copyright">
+                © Copyright Qode Interactive. This demo is part of the Bridge theme.
+            </p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

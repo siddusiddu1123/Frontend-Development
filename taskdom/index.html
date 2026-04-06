@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Task</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        h1 {
+            color: #1f5fa8;
+        }
+
+        .orange {
+            color: #d96a00;
+        }
+
+        .section-title {
+            color: #1f5fa8;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        hr {
+            margin: 25px 0;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #888;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #1f5fa8;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .form-box {
+            border: 1px solid #888;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .form-box h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .row label {
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .row input,
+        .row textarea {
+            flex: 1;
+            padding: 6px;
+        }
+
+        button {
+            background: #1f5fa8;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML TASK: <span class="orange">Lists, Tables & Forms</span></h1>
+
+    <hr>
+
+    <h2 class="section-title">1. Create a List</h2>
+
+    <p>Create an ordered list of <b><i>Steps to Make a Sandwich</i></b>:</p>
+
+    <ol>
+        <li>Gather Ingredients</li>
+        <li>Spread the Condiments</li>
+        <li>Add the Fillings</li>
+        <li>Put the Sandwich Together</li>
+    </ol>
+
+    <hr>
+
+    <h2 class="section-title">2. Build a Table</h2>
+
+    <p>Create a table showing <b><i>Student Grades</i></b>:</p>
+
+    <table>
+
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Grade</th>
+        </tr>
+
+        <tr>
+            <td>John</td>
+            <td>Math</td>
+            <td>A</td>
+        </tr>
+
+        <tr>
+            <td>Sarah</td>
+            <td>Science</td>
+            <td>B+</td>
+        </tr>
+
+        <tr>
+            <td>Mike</td>
+            <td>History</td>
+            <td>C</td>
+        </tr>
+
+    </table>
+
+    <hr>
+
+    <h2 class="section-title">3. Create a Form</h2>
+
+    <p>Design a <b><i>Contact Us</i></b> form with the following fields:</p>
+
+    <div class="container">
+
+        <ul>
+            <li>Name</li>
+            <li>Email</li>
+            <li>Message</li>
+            <li>Submit Button</li>
+        </ul>
+
+        <div class="form-box">
+
+            <h3>Contact Us</h3>
+
+            <div class="row">
+                <label>Name:</label>
+                <input type="text">
+            </div>
+
+            <div class="row">
+                <label>Email:</label>
+                <input type="email">
+            </div>
+
+            <div class="row">
+                <label>Message:</label>
+                <textarea rows="4"></textarea>
+            </div>
+
+            <button>Send Message</button>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer">
+        <b><i>Complete all tasks using proper HTML!</i></b>
+    </div>
+
+    <hr>
+
+</body>
+
+</html>

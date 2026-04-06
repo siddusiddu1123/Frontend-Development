@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HTML CSS </title>
+    <style>
+         body {
+            margin: 0;
+            font-family: arial;
+        }
+
+        /* Hero page */
+
+        .hero {
+            height: 100vh;
+            background:whitesmoke;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Dark Overlay */
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0, 65);
+        }
+
+        /* content */
+
+        .content {
+            position: relative;
+            color:black;
+            padding: 80px;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 40px;
+        }
+
+        .feature-title {
+            color:black;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .ul {
+            list-style: none;
+            padding: 0;
+            color: #e5e56a;
+            font-size: 28px;
+            line-height: 1.8;
+        }
+
+        li::before {
+            content: counter(item) " .";
+            counter-increment: item;
+        }
+
+        ul {
+            counter-reset: item;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="hero">
+
+        <div class="content">
+
+            <h1> Get your HTML and<br> CSS Task Done </h1>
+
+            <div class="feature-title"> Key Features: </div>
+
+            <ul>
+
+                <li>Responsive Design</li>
+                <li>100% Satisfaction</li>
+                <li>Money back Gurentee</li>
+                <li>ASAP Devlivery</li>
+                <li>Cross-browser Support</li>
+            </ul>
+
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NEW WEBSITE PROFILE </title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #e9ebee;
+        }
+
+        .facebook {
+            background: #3b5998;
+            color: black;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .icons span {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .core {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .left {
+            width: 25%;
+        }
+
+        .center {
+            width: 50%;
+        }
+
+        .right {
+            width: 25%;
+        }
+
+        .card {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .profile img {
+            width: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+
+        .photos img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .post-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .post-box button {
+            padding: 8px 15px;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user img {
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .post-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .post-images img {
+            width: 50%;
+            border-radius: 5px;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        .actions button {
+            margin-right: 10px;
+        }
+
+        .friend {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .friend img {
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .yes {
+            background: green;
+            color: white;
+            border: none;
+        }
+
+        .no {
+            background: red;
+            color: white;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+
+        .interests h3 {
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tags span {
+            background: #3b4a5a;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .message-box {
+            position: relative;
+        }
+
+        .msg-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .message-box p {
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="facebook">
+        <h2> 🏠Logo </h2>
+        <div class="icons">
+            <span>🏠</span>
+            <span> 👤</span>
+            <span>✉️</span>
+            <span>🔔</span>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="core">
+
+        <!-- LEFT -->
+        <div class="left">
+
+            <div class="card profile">
+                <h3>My Profile</h3>
+                <img
+                    src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsQSvdTIUVPO7U_3G-2_4JdSk31xln9tEmlg&s">
+                <p> ✉️ Designer UI</p>
+                <p> 🏠 Medina, Washington</p>
+                <p> 👤 28/1955 </p>
+            </div>
+
+            <div class="card">
+                <h4>My Groups</h4>
+                <p>Some text...</p>
+            </div>
+
+            <!-- Interests Section -->
+            <div class="card interests">
+                <h3>Interests</h3>
+
+                <div class="tags">
+                    <span>computer programming</span>
+                    <span> Gates Foundation</span>
+                    <span>Technology & AI</span>
+                    <span>Climate Change & Energy</span>
+                    <span>Reading & Learning</span>
+                    <span>Hobbies</span>
+                    <span>Friends</span>
+                    <span>Philanthropy & Health</span>
+                    <span>  tennis</span>
+                    <span>playing bridge</span>
+                    <span>Spending Time with Family</span>
+                </div>
+            </div>
+
+            <!-- Message Box -->
+            <div class="card message-box">
+                <div class="msg-header">
+                    <h3>Hey!</h3>
+                    <span class="close-btn">&times;</span>
+                </div>
+                <p>
+                    American entrepreneur, software developer, and philanthropist who co-founded Microsoft in 1975,
+                    shaping the personal computer revolution. He served as CEO and chairman until 2000, later focusing
+                    on global health and development via the Bill & Melinda Gates Foundation. .
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>My Photos</h4>
+                <div class="photos">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUYzd4_hwz76WDPY1j8mXb7nDwU0Qv562_bA&s">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0A3F9fx7dvwAT3gs544BiLoiiSyw-9uFAog&s">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0I-GEvEEYaIWzu6yiMU1aK5TSaMil259RUg&s">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCj6i18OIcgtW_UBnCzO85yyFK-stKE1Zulg&s">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CENTER -->
+        <div class="center">
+
+            <div class="card post-box">
+                <input type="text" placeholder="Status: Feeling Blue">
+                <button>Post</button>
+            </div>
+
+            <!-- POST -->
+            <div class="card post">
+                <div class="user">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYtWGBhIwNajh4f2eVtFVmgp3YDX3AZ4mKyg&s">
+                    <h4>Larry Ellison</h4>
+                </div>
+                <p>
+                    “Winning is not enough. All others must lose.”...
+                </p>
+
+                <div class="post-images">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqhMGjflFIHpeNn4-Za6cVgIUnl16aN8ztXQ&s">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK1ayWL2f34KvqHdLHX6QHWPnvXwniB6EoaQ&s">
+                </div>
+
+                <br>
+                <br>
+                <div class="actions">
+                    <button>Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+
+            <!-- POST -->
+            <div class="card post">
+                <div class="user">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpPDoR5RLFl3nPVjTpweq4W4zLaaVOY88H3g&s">
+                    <h4> Elon Musk </h4>
+                </div>
+                <p>
+                    "When something is important enough, you do it even if the odds are not in your favor".......
+                </p>
+
+                <div class="post-images">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQikKaXWR1-S2fmQFwakJn49zPNAwSdPXIjw&s">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPc03Kh45K4NZURY0SGeqGMoCaXRYr9250CA&s">
+                </div>
+
+                <div class="actions">
+                    <button>Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+
+            <!--POST-->
+            <div class="card post">
+                <div class="user">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRggSOfGLOGGF2MqS6_BzujQn8ppl1WNDnXtw&s">
+                    <h4>Jeff Bezos</h4>
+                </div>
+                <p>“A brand for a company is like a reputation for a person.
+                    You earn reputation by trying to do hard things well.”...
+                </p>
+
+                <div class="card post">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR97_rCEvyKgAQtmpJ2UJFzewfCXbZqr3RNow&s">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi3m72V7Dgf0Nz20r-O9c2OTZodpyj9b80cw&s">
+                </div>
+
+                <div class="actions">
+                    <button>Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!--  post -->
+         <div class="card post">
+            <div class="user">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPMFH2YloEHRL4iTmWTw7uwkgDE0i_82_lPA&s">
+                <h4>Warren Buffett</h4>
+            </div>
+            <p> “Rule No. 1 is never lose money. Rule No. 2 is never forget Rule No. 1.” </p>
+            <div class="actions">
+                <button> like </button>
+                <button> comment </button>
+            </div>
+         </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <div class="card">
+                <h4>Upcoming Events</h4>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMvT45cbNzWVh25_6nzqtlDc6BYMjjkVG29A&s">
+                <p>Holiday</p>
+            </div>
+
+            <div class="card">
+                <h4>Friend Request</h4>
+                <div class="friend">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxetFWMhl3BOZK3VkbZB1fI64dWy_GTY42tA&s">
+                    <p> Donald Trump</p>
+                    <button class="yes">✔</button>
+                    <button class="no">✖</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>Powered by HTML & CSS</footer>
+</body>
+
+</html>

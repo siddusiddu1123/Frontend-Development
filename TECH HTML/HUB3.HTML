@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Cards</title>
+    <style>
+        body {
+            font-family: arial;
+            background: white;
+            margin: 40px
+        }
+
+        .container {
+            display: flex;
+            gap: 30px
+        }
+
+        .card {
+            width: 320px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0)
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover
+        }
+
+        .content {
+            padding: 15px
+        }
+
+        .category {
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 8px
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px
+        }
+
+        .desc {
+            color: gray;
+            font-size: 20px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="risk.png">
+            <div class="content">
+                <div class="category">blog</div>
+                <div class="title">Balancing the risks and opportunities of AI-driven procurement</div>
+                <div class="desc">The many benefits AI can bring to procurement organizations are .............</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="outlook.jfif">
+            <div class="content">
+                <div class="category">blog</div>
+                <div class="title">2026 Supply chain outlook: 4 Macro Trends procurement Leaders Must know</div>
+                <div class="desc">As 2026 approaches, the Golbal economy is settling into a new pattern ...........
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="trends.jfif">
+            <div class="content">
+                <div class="category">blog</div>
+                <div class="title">Ten trends set to Transform proncurement in 2026</div>
+                <div class="desc">2025 was another years of widespread change and Transformation ..................
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

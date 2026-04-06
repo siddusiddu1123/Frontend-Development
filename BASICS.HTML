@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client Review Section</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            background: #111827;
+            color: #FFF;
+        }
+
+        .testimoinal-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .small-title {
+            color: #aaa;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .main-title span {
+            color: #ff7a00;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background: #1f2937;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            text-align: left;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
+        }
+
+        .client-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #ff7a00;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: #d1d5db;
+        }
+
+        .quote {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        .dots {
+            margin: 40px 0 30px;
+        }
+
+        .dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background: #ccc;
+            border-radius: 50%;
+        }
+
+        .dots span.active {
+            background: #fff;
+        }
+
+        .sub-text {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .bottom-title {
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .bottom-title span {
+            color: #ff7a00;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="testimoinal-section">
+        <div class="small-title">testimonial</div>
+        <h2 class="main-title">our clients <span>Review</span></h2>
+
+        <div class="testimonial-container">
+
+            <div class="testimoinal-card">
+                <div class="client-name">Anjali sharam</div>
+                <div class="stars">*****</div>
+                <div class="testimonial-text">
+                    oppty's e-commerce platform increased our oline sales by 45% in just three months!
+                </div>
+                <div class="quote">"</div>
+            </div>
+
+            <div class="testimoinal-card">
+                <div class="client-name">Rohan patel,tech entrepreneur</div>
+                <div class="stars">*****</div>
+                <div class="testimonial-text">
+                    their AI drive solution optimized our workflow, saving us singificant costs
+                </div>
+                <div class="quote">"</div>
+            </div>
+
+            <div class="testimoinal-card">
+                <div class="client-name">priyanka reddy, marketing head</div>
+                <div class="stars">*****</div>
+                <dic class="testimonial-text">
+                    the responsive website oppty built for us perfectly captures our brand's essence
+                </dic>
+                <div class="quote"></div>
+            </div>
+        </div>
+        <div class="dots">
+            <span></span>
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="sub-text">we are proud to partner with industry leaders.</div>
+        <h2 class="bottom-title">our valued <span>clients</span></h2>
+
+    </section>
+
+</body>
+
+</html>

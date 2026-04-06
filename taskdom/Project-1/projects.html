@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        /* CONSULTATION SECTION */
+        .consultation-section {
+            background: #0d3b5c;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .consultation-section h1 {
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        /* MAP */
+        .map-container {
+            width: 70%;
+            margin: auto;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #082b44;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            width: 30%;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-box p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .footer-box {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .map-container {
+                width: 100%;
+            }
+        }
+
+
+        /* TOP BAR */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #f2f2f2;
+            font-size: 14px;
+        }
+
+        .top-left {
+            font-weight: bold;
+        }
+
+        .top-center {
+            text-align: center;
+            margin-left: 300px;
+        }
+
+        .top-center a {
+            margin-left: 10px;
+            text-decoration: underline;
+        }
+
+        .top-right button {
+            background: black;
+            color: white;
+            padding: 6px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* MAIN NAVBAR */
+        .main-header {
+            position: sticky;
+            /* makes it stick */
+            top: 0;
+            /* sticks to top */
+            z-index: 1000;
+            /* stays above all content */
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d3b5c;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .logo {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .main-header nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .main-header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .login {
+            margin-left: 20px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+            }
+
+            .main-header nav {
+                margin-top: 10px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #f2f2f2;
+    font-size: 14px;
+}
+
+/* Left */
+.top-left {
+    font-weight: bold;
+}
+
+/* Center icons */
+.top-center {
+    display: flex;
+    gap: 10px;
+}
+
+.top-center img {
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Right section */
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-right a {
+    text-decoration: underline;
+}
+
+.top-right button {
+    background: black;
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 60px 40px; /* Vertical gap, Horizontal gap */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card {
+    text-align: left; /* Text aligns left under the image */
+}
+
+.project-card img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover; /* Prevents image stretching */
+    margin-bottom: 25px;
+}
+
+.project-card h3 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #0d3b5c;
+    text-transform: uppercase;
+}
+
+.project-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #333333;
+    font-weight: 300; /* Light weight for descriptions */
+}
+        
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+    <!-- Left -->
+    <div class="top-left">WIX</div>
+    <!-- Center (icons) -->
+    <div class="top-center">
+        <a href="./preview.html"><img src="https://cdn-icons-png.flaticon.com/128/3474/3474360.png" alt="Computer"></a>   
+        <div> || </div>
+        <a href="./websitetask.html"> <img src="https://cdn-icons-png.flaticon.com/128/18887/18887773.png" alt="Phone"></a>
+      
+    </div>
+
+    <!-- Right (text + button together) -->
+    <div class="top-right">
+        <span>Click edit and create your own amazing website</span>
+        <a href="#">Read More</a>
+        <button>Edit this site</button>
+    </div>
+
+</div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="main-header">
+        <div class="logo">JAMES CONSULTING</div>
+
+        <nav>
+            <a href="./websitetask.html#about">About</a>
+            <a href="./websitetask.html#services">Services</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./priceAndGrowth.html">Plans & Pricing</a>
+            <a href="./toolsAndTips.html">Tools & Tips</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="login">Log In</a>
+        </nav>
+    </header>
+
+
+
+    <section class="projects-section">
+        <h1 style="display: flex; align-items: center; justify-content: center; padding: 40px;">PROJECTS</h1>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500" alt="Project 1">
+                <h3>PROJECT 1</h3>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500" alt="Project 2">
+                <h3>PROJECT 2</h3>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500" alt="Project 3">
+                <h3>PROJECT 3</h3>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500" alt="Project 4">
+                <h3>PROJECT 4</h3>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+            </div>
+        </div>
+    </section>
+
+     <section class="consultation-section">
+
+                <h1>GET A FREE CONSULTATION</h1>
+
+                <!-- MAP -->
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                <div class="footer-container" id="contact">
+
+                    <!-- LEFT -->
+                    <div class="footer-box">
+                        <h3>JAMES CONSULTING</h3>
+                        <p>1st Floor, H, Vijaya Lakshmi Enclave, 2-108/43, 
+                            PJR Enclave Rd, PJR Colony, Gangaram, ICRISAT Colony, 
+                            Hyderabad, Telangana 500050,
+                            <br>
+                            </p>
+                        <p>Email:  oppty.in</p>
+                        <p>Tel: 094912 09900</p>
+                    </div>
+
+                    <!-- CENTER -->
+                    <div class="footer-box">
+                        <h3>MENU</h3>
+                        <p>About</p>
+                        <p>Services</p>
+                        <p>Projects</p>
+                        <p>Plans & Pricing</p>
+                        <p>Tools & Tips</p>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="footer-box">
+                        <h3>SOCIALS</h3>
+                        <p>Facebook</p>
+                        <p>Twitter</p>
+                        <br>
+                        <p>© 2035 by JAMES CONSULTING.</p>
+                        <p>Powered and secured by Wix</p>
+                    </div>
+
+                </div>
+
+            </footer>
+</body>
+</html>

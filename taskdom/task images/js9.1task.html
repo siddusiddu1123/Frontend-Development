@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Images Generator </title>
+
+    <style>
+        .body {
+            background: #f2f2f2 ;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .sun-container {
+            background: #eaeaea;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 5px rgb(0, 0, 0, 0.2);
+
+        }
+        .h1 {
+            margin-bottom: 15px;
+        }
+        .season img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .season-names {
+            margin: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        button {
+            padding: 8px 15px;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button :hover {
+            background: #555;
+        }
+        .counter {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sun-container">
+        <h1> Sun </h1>
+        <div class="Sun">
+             <img id="sliderimage" src="" alt="sliderimage">
+        <div class="season-names" id="seasonNames">Summer</div>
+        </div>
+        <div class="controls">
+            <button onclick=" previmage()"> prev </button>
+            <div class="counter" id="counter"> image 1 of 4</div>
+            <button onclick="nextimage()">next</button>
+        </div>
+    </div>
+
+    <script>
+
+        const images = [
+            	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZmx3iBx9VKCyR5X5_o5kxkNmXW4wJkS5_xQ&s",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy4sL66QmRT8EA8KFgOF6xkNmA1zZDk8JUdw&s",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfjWzVQHJB_sc_TJxSnCzQ6oBxfx_zMivWPg&s",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlKxNDOWE0geBJw5kYa5TiGAZQc3jd1VBcQ&s",
+        ];
+        const seasons = ["Summer", "Winter", "Rain", "Spring"];
+
+        let currentindex =0;
+
+        function updateSlider() {
+            document.getElementById("sliderimage").src = images[currentindex];
+            document.getElementById("seasonNames").innerText = seasons[currentindex];
+            document.getElementById("counter").innerText = `Images ${currentindex + 1} of ${images.length}`;
+        }
+
+        function nextimage() {
+            currentindex = (currentindex + 1 ) % images.length;
+            updateSlider();
+        }
+
+        function previmage () {
+            currentindex =(currentindex - 1 + images.length) % images.length;
+            updateSlider();
+        }
+
+         updateSlider();
+    </script>
+    
+</body>
+</html>

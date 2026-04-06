@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Javascript Functions </title>
+</head>
+<body>
+    
+    <h1> Javascript Functions </h1>
+    <p> Setting a default value to a function parameter (name=" man") </p>
+    <p> id = "greet"</p>
+    <script>
+        function greet(name = " man") {
+            if(name === undefined) {
+                name = "man";
+            }
+            return "hello" + name;
+        }
+        document.getElementById("greet").innerHTML = greet("siddu");
+        document.getElementById("greet").innerHTML = greet();
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Return Statemet </title>
+</head>
+<body>
+     <h1> Return Statement </h1>
+     <p> The return statement in a function is used to specify the value that the function should return. </p>
+     <p> id = "returnVal"</p>
+     <script>
+        function sayHelloWorld() {
+            return "hello world";
+        }
+        let result =sayHelloWorld();
+        document.getElementById("returnVal").innerHTML = result;
+     </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> type of Function </title>
+</head>
+<body>
+    <h1> types of functions </h1>
+    <p> Named function </p>
+    <button id="namedfunc">Click me</button>
+<script>
+    function namedfunction() {
+        alert("this is a nemed function");
+    }
+    document.getElementById("namedfunc").addEventListener("click", namedfunction);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1465 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .boby {
+            font-family: arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+        .container {
+            text-align: center;
+            background: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgb(0, 0, 0, 0.2);
+            width: 350px;
+        }
+        h2 {
+            margin-bottom: 25px;
+        }
+        /* .select,input{
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; */
+        select, input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            background: orange;
+        }
+        button {
+            background: green;
+            color: whitesmoke;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: grey;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> product Discount Calculator</h2>
+
+            <label>select product:</label>
+            <select id="product">
+                <option value="800">mouse</option>
+                <option value="1500">keyboard</option>
+                <option value="40000">laptop</option> 
+            </select>
+            <label>Enter Discout (%):</label>
+            <input type="number" id="discount" placeholder="enter discount">
+            <button onclick="calculateprice()">Get final price</button>
+            <p id="original">original price: - </p>
+            <p id="final">total amout: - </p>
+        </div>
+        <script>
+            function calculateprice () {
+                let price = document.getElementById("product").value;
+                console.log(price);
+                let discount = document.getElementById("discount").value;
+            
+            price = Number(price);
+            discount = Number(discount);
+
+            let discountamount = (price * discount) / 100;
+            let finalprice = price - discountamount;
+            console.log("Final : ",finalprice);
+
+            document.getElementById("original").innerText = `original price :-  ${price}`;
+            // document.getElementById("original").innerText = price;
+            document.getElementById("final").innerText = `total amount :-  ${finalprice}`;
+            }
+        </script>
+    </div>
+
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Consulting</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: black;
+            color: white;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .hero {
+            height: 90vh;
+            background: url("https://www.shutterstock.com/image-photo/two-adorable-snowmen-dressed-cozy-260nw-2538937931.jpg") center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: orange;
+            border: none;
+        }
+
+
+        /* SERVICES */
+        .services {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .service-box {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 30%;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        /* ABOUT */
+        .about {
+            display: flex;
+            padding: 50px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 50%;
+        }
+
+        .about-text {
+            width: 50%;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: #f2f2f2;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .testimonial-box {
+            margin: 20px;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 80%;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .services-section {
+            padding: 60px 40px;
+            background: #fff;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            transition: 0.3s;
+            background: white;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card h2 {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .short {
+            color: #555;
+        }
+
+        .full {
+            display: none;
+            color: #777;
+        }
+
+        .toggle-btn {
+            margin-top: 10px;
+            border: none;
+            background: none;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #loadMore {
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .clients-section {
+            background: #f5f5f5;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        /* Button */
+        .consult-btn button {
+            padding: 12px 30px;
+            border: 1px solid #0a2a43;
+            background: transparent;
+            color: #0a2a43;
+            cursor: pointer;
+            margin-bottom: 40px;
+            transition: 0.3s;
+        }
+
+        .consult-btn button:hover {
+            background: #0a2a43;
+            color: white;
+        }
+
+        /* Title */
+        .clients-title {
+            font-size: 28px;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            color: #0a2a43;
+        }
+
+        /* Logos */
+        .clients-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .clients-logos img {
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .clients-logos img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .slider-section {
+            padding: 80px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .slider {
+            max-width: 900px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .slide h3 {
+            margin-top: 15px;
+            font-size: 22px;
+        }
+
+        .slide p {
+            color: #555;
+        }
+
+        /* Dots */
+        .dots {
+            margin-top: 15px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 5px;
+            background: #ccc;
+            display: inline-block;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #000;
+        }
+
+        /* CONSULTATION SECTION */
+        .consultation-section {
+            background: #0d3b5c;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .consultation-section h1 {
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        /* MAP */
+        .map-container {
+            width: 70%;
+            margin: auto;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #082b44;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            width: 30%;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-box p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .footer-box {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .map-container {
+                width: 100%;
+            }
+        }
+
+        .growth-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: #f5f5f5;
+            position: relative;
+        }
+
+        /* Side background images (like Wix) */
+        .growth-section::before,
+        .growth-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* .growth-section::before {
+            left: 0;
+            background-image: url('https://picsum.photos/300/600?1');
+        } */
+
+        /* .growth-section::after {
+            right: 0;
+            background-image: url('https://picsum.photos/300/600?2');
+        } */
+
+        .growth-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .consult-btn {
+            padding: 12px 30px;
+            border: 1px solid #0a2a43;
+            background: transparent;
+            color: #0a2a43;
+            cursor: pointer;
+            margin-bottom: 60px;
+        }
+
+        /* 3 Columns */
+        .growth-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .growth-box {
+            width: 30%;
+        }
+
+        .growth-box h2 {
+            margin-bottom: 15px;
+        }
+
+        .growth-box p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .growth-box button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #0a2a43;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .growth-box {
+                width: 100%;
+            }
+
+            .growth-section::before,
+            .growth-section::after {
+                display: none;
+            }
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #f2f2f2;
+            font-size: 14px;
+        }
+
+        .top-left {
+            font-weight: bold;
+        }
+
+        .top-center {
+            text-align: center;
+        }
+
+        .top-center a {
+            margin-left: 10px;
+            text-decoration: underline;
+        }
+
+        .top-right button {
+            background: black;
+            color: white;
+            padding: 6px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* MAIN NAVBAR */
+        .main-header {
+            position: sticky;
+            /* makes it stick */
+            top: 0;
+            /* sticks to top */
+            z-index: 1000;
+            /* stays above all content */
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d3b5c;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        .logo {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .main-header nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .main-header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .login {
+            margin-left: 20px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+            }
+
+            .main-header nav {
+                margin-top: 10px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            height: 100vh;
+            background: url('your-image.jpg') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 50px;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .overlay h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .short-text {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .long-text {
+            margin-bottom: 25px;
+            color: #666;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: 1px solid #333;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 60px;
+            text-align: center;
+            background: #f5f5f5;
+        }
+
+        .services h1 {
+            margin-bottom: 30px;
+        }
+
+        .service-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .service-box div {
+            background: #fff;
+            padding: 30px;
+            width: 150px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <!-- TOP WIX BAR -->
+    <div class="top-bar">
+        <div class="top-left">WIX</div>
+
+        <div class="top-center">
+            <span>Click edit and create your own amazing website</span>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="top-right">
+            <button>Edit this site</button>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="main-header">
+        <div class="logo">JAMES CONSULTING</div>
+
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">Plans & Pricing</a>
+            <a href="#">Tools & Tips</a>
+            <a href="#">Contact</a>
+            <a href="#" class="login">Log In</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <!-- <h1>Grow Your Business</h1>
+            <p>Professional consulting services for success</p>
+            <button>Get Started</button> -->
+        </div>
+    </section>
+    <section class="growth-section">
+
+        <h1>ACHIEVING GROWTH</h1>
+
+        <button class="consult-btn">Free Consultation</button>
+
+        <div class="growth-container">
+
+            <!-- SERVICES -->
+            <div class="growth-box">
+                <h2>SERVICES</h2>
+                <p>
+                    I'm a paragraph. Click here to add your own text and edit me. It's easy.
+                    Just click “Edit Text” or double click me to add your own content and
+                    make changes to the font. I'm a great place for you to tell a story.
+                </p>
+                <button>More Info</button>
+            </div>
+
+            <!-- PROJECTS -->
+            <div class="growth-box">
+                <h2>PROJECTS</h2>
+                <p>
+                    I'm a paragraph. Click here to add your own text and edit me. It's easy.
+                    Just click “Edit Text” or double click me to add your own content and
+                    make changes to the font. I'm a great place for you to tell a story.
+                </p>
+                <button>More Info</button>
+            </div>
+
+            <!-- CLIENTS -->
+            <div class="growth-box">
+                <h2>CLIENTS</h2>
+                <p>
+                    I'm a paragraph. Click here to add your own text and edit me. It's easy.
+                    Just click “Edit Text” or double click me to add your own content and
+                    make changes to the font. I'm a great place for you to tell a story.
+                </p>
+                <button>More Info</button>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ABOUT US SECTION -->
+    <section class="about">
+        <div class="overlay">
+            <h1>ABOUT US</h1>
+            <p class="short-text">
+                I'm a paragraph. Click here to add your own text and edit me.
+                It's easy. Just click “Edit Text” or double click me.
+            </p>
+
+            <p class="long-text">
+                This is a great space to write a long text about your company and your services.
+                You can use this space to go into a little more detail about your company.
+                Talk about your team and what services you provide.
+            </p>
+
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <!-- OUR SERVICES SECTION -->
+    <!-- <section class="services">
+        <h1>OUR SERVICES</h1>
+        <div class="service-box">
+            <div>Service 1</div>
+            <div>Service 2</div>
+            <div>Service 3</div>
+        </div>
+    </section> -->
+
+    <section class="services-section">
+        <h1 class="title">OUR SERVICES</h1>
+
+        <div class="services-container" id="servicesContainer">
+            <!-- Service Item -->
+            <div class="service-card">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7eJjNG5IK0PWhILlbO45eJa4mF5n2ocoF4Q&s" />
+                <h2>01. Custom Project</h2>
+                <p class="short">
+                    We tailor our services precisely to your unique requirements.
+                    This package is designed to address specific challenges or goals,
+                    ensuring a personalized approach that delivers optimal results..
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img
+                    src="https://media.istockphoto.com/id/1321462048/photo/digital-transformation-concept-system-engineering-binary-code-programming.jpg?s=612x612&w=0&k=20&c=Ib8RLw3_eCOo9N3YE4pvp9rcb_WmirjS-9x9R-vTd68=" />
+                <h2>02. Personal Solution Planning</h2>
+                <p class="short">
+                    Receive bespoke solutions crafted after in-depth discussions
+                    about your individual needs and aspirations. We focus on
+                    understanding your situation to provide actionable and effective strategies.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img
+                    src="https://media.istockphoto.com/id/943067460/photo/male-it-specialist-holds-laptop-and-discusses-work-with-female-server-technician-theyre.jpg?s=612x612&w=0&k=20&c=851ArmF2ooz-2yQCRCWkjJLCYwDdpTCYzPinl9WgA_s=" />
+                <h2>03. Expert Guidance Package  </h2>
+                <p class="short">
+                    Gain access to our team's specialized knowledge and insights.
+                    This package offers comprehensive advice and strategic direction
+                    to help you navigate complex situations and achieve your objectives.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img
+                    src=" https://media.istockphoto.com/id/2156675608/video/hispanic-latin-american-couple-software-engineer-developer-use-computer-work-on-program.avif?s=640x640&k=20&c=hBt6RWSSoONOkgeIdIk4A6gCl-rOQ9KMXbCiIFEs9EM=" />
+                <h2>04. Custom Project </h2>
+                <p class="short">
+                    Need a unique solution tailored to your specific needs? Our team
+                    will work closely with you to define project scope, develop innovative strategies,
+                    and outline a clear path for execution. This service is designed to tackle
+                    .</p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img
+                    src="https://media.istockphoto.com/id/2158226013/photo/business-people-working-with-a-digital-tablet-in-a-meeting.jpg?s=612x612&w=0&k=20&c=r2ZoBQb_icWmGK49eW3sblRc7j7aVlFAtctKyyuGBpU=" />
+                <h2>05. Personal Solution Planning</h2>
+                <p class="short">
+                    Let us understand your individual requirements and aspirations.
+                    We offer dedicated sessions to explore your situation, identify key goals,
+                    and map out a personalized strategy. Our approach ensures that your specific
+                    needs are at the
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1206796363/photo/ai-machine-learning-hands-of-robot-and-human-touching-on-big-data-network-connection.jpg?s=612x612&w=0&k=20&c=xIX5Bz7h50B83cCZG_gXkyZSOu-mG93DtOcNK7RNEAo=" />
+                <h2>06. Expert Guidance Package </h2>
+                <p class="short">
+                    Leverage our deep industry knowledge and experience to navigate your toughest decisions.
+                    This package provides access to expert insights, strategic advice, and detailed recommendations
+                    to help you achieve your
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/2186780950/photo/software-engineers-collaborating-on-a-project-analyzing-code-on-computer-monitors-in-office.jpg?s=612x612&w=0&k=20&c=IjEpYeHTtR_RV7P0OJrgHF-2dIyRkxBu2xcPw9OsP2c=" />
+                <h2>07. Custom Project Development </h2>
+                <p class="short">
+                    Bring your unique vision to life with our bespoke solutions,
+                    meticulously designed to meet your specific requirements.
+                    We collaborate closely with you from concept to completion,
+                    ensuring a one-of-a-kind outcome
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1516277094/photo/young-female-teacher-giving-a-data-science-presentation-in-a-dark-auditorium-with-projecting.jpg?s=612x612&w=0&k=20&c=NgyW23VOapSLyllIJwJnoryZEyM1JMfz1mgTKBJoCpY=" />
+                <h2>08. Personalized Strategy Session </h2>
+                <p class="short">
+                    Unlock your potential with our dedicated planning service,
+                    where we delve into your distinct challenges and objectives.
+                    Through attentive listening and insightful discussion,
+                    we map out actionable steps to guide you toward
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/2210236269/photo/high-speed-data-streaming-through-cityscape-smart-city-digital-transformation-network.jpg?s=612x612&w=0&k=20&c=dHoecomHRsQ7Z1uM_mBagAdGosnhvWZ1r0qmJ_7TeLk=" />
+                <h2>09. Client Success Roadmap </h2>
+                <p class="short">
+                    Navigate your journey with confidence using our comprehensive roadmap service,
+                    designed by seasoned professionals. We illuminate the path forward, providing clear,
+                    expert-backed direction to overcome obstacles and achieve
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1358389574/photo/3d-hands-holding-a-smartphone-and-pointing-at-it.jpg?s=612x612&w=0&k=20&c=QFdzUQN_pnR7EiobwzaTGslFdr2efckprHWS7RoJxMU=" />
+                <h2>10. Custom Project </h2>
+                <p class="short">
+                    Unlock unique solutions tailored precisely to your specific needs.
+                    This service is designed for bespoke requirements that demand creative problem-solving
+                    and innovative approaches. We collaborate closely with you to ensure the
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1347880350/photo/shot-of-two-young-technicians-using-a-digital-tablet-while-working-in-a-server-room.jpg?s=612x612&w=0&k=20&c=P3cj_Of9OFCZm0TtNrsikvAbGmxhDYimCbxCCjxoKh4=" />
+                <h2>11. Personal Solution Planning </h2>
+                <p class="short">
+                    Receive a personalized roadmap crafted to address your individual goals and circumstances.
+                    We dive deep into understanding your situation to develop actionable plans.
+                    This service focuses on
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t3.ftcdn.net/jpg/19/51/00/88/240_F_1951008845_c3oq3VjxbwTvOL8AKgp8J9zS69KpiMru.jpg" />
+                <h2>12. Expert Guidance Package </h2>
+                <p class="short">
+                    Tap into our extensive knowledge and experience to gain valuable insights for your endeavors.
+                    This package offers structured advice and strategic recommendations to steer your project in
+                    the right direction. Leverage our
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/17/89/42/77/240_F_1789427701_5yHFwBIJKz9pupbqjzQHEAc3MI50unYs.jpg" />
+                <h2>13. Custom Project </h2>
+                <p class="short">
+                    This service is designed to tackle unique challenges and opportunities specific to your needs.
+                    We'll work collaboratively to define scope, objectives, and deliverables, ensuring a
+                    tailored solution that perfectly fits your
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/13/53/00/19/240_F_1353001929_XmF1kQ87j2m5InI6lq8XDtwL4AubhSFe.jpg" />
+                <h2>14. Personal Solution Planning </h2>
+                <p class="short">
+                    Engage in a dedicated session to discuss your individual requirements and goals.
+                    We focus on understanding your precise situation to map out a clear and actionable
+                    path forward, providing personalized advice and next steps.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/06/37/89/69/240_F_637896946_LMCECztKoa4CSzA8cht7G1U3GYCLK7Qd.jpg" />
+                <h2>15. Expert Guidance Package </h2>
+                <p class="short">
+                    Leverage our accumulated knowledge and experience to navigate complex decisions.
+                    This package provides structured insights, strategic recommendations,
+                    and expert advice to guide your choices effectively.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/2014634732/photo/2024-event-planner-timetable-agenda-plan-on-schedule-event-business-woman-checking-planner.jpg?s=612x612&w=0&k=20&c=sf558d3FY9zsELs0AGlMZLa16U_Ks-c1e2dZb6R2PyE=" />
+                <h2>16. Custom Project </h2>
+                <p class="short">
+                    This service is designed to tackle your unique challenges.
+                    We collaborate closely with you to understand your specific needs and objectives.
+                    Our team will then develop a tailored solution to meet your exact requirements. Experience a
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1493074418/photo/architecture-blueprint-measurement-calculate-project-engineer-calculator-mathematical-pencil.jpg?s=612x612&w=0&k=20&c=oMKVnUkCgnZj-BV2IPSs4zS2Uz5Y1mdqclHAW7XaCJs=" />
+                <h2>17. Personal Solution Planning </h2>
+                <p class="short">
+                    Get a personalized strategy tailored to your individual situation.
+                    We take the time to listen and understand your goals.
+                    Our experts will provide a clear, actionable plan designed for your success.
+                    Achieve your objectives with confidence.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1193382198/photo/handsome-real-estate-agent-in-suit-standing-in-building-in-construction-process-and-using.jpg?s=612x612&w=0&k=20&c=leM_QwzmzJal46icViMsZw5v7z3tYmjxGAPmb1sEC0E=" />
+                <h2>18. Expert Guidance Package </h2>
+                <p class="short">
+                    Benefit from our collective expertise to navigate complex situations.
+                    This package offers comprehensive support and insights from industry professionals.
+                    We help you make informed decisions and steer clear of common
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://media.istockphoto.com/id/1055138804/photo/augmented-reality-project.jpg?s=1024x1024&w=is&k=20&c=ub42pycyAYqDLJqOElTFih6tr6Y6oHZf0K7BV6Y0ymo="/>
+                <h2>19. Custom Project </h2>
+                <p class="short">
+                    We specialize in creating bespoke solutions tailored to your unique requirements.
+                    Our team collaborates closely with you, ensuring every detail aligns with your vision and
+                    objectives.
+                    From concept to execution, we deliver an
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t3.ftcdn.net/jpg/13/96/03/66/240_F_1396036694_0w0MLfiTwlDpDKfQCI3GWyO5MleOU8vb.jpg" />
+                <h2>20. Personal Solution Planning </h2>
+                <p class="short">
+                    Understand your individual needs through dedicated, one-on-one sessions.
+                    We work with you to define your goals and challenges clearly. Together,
+                    we map out a personalized strategy to achieve your desired outcomes effectively.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t3.ftcdn.net/jpg/07/06/38/38/240_F_706383875_meHEsqYLA9D7V67cLjnU17GAI9L2nHta.jpg" />
+                <h2>21. Expert Guidance Package </h2>
+                <p class="short">
+                    Leverage our deep industry knowledge and strategic insights to navigate complex challenges.
+                    This package offers structured support to help you make informed decisions and
+                    optimize your approach. Receive
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://as2.ftcdn.net/v2/jpg/03/88/00/21/1000_F_388002149_srzvE3qmkubE1qx6YVQ7pX2lJKm9MHN4.jpg" />
+                <h2>22. Custom Project </h2>
+                <p class="short">
+                    We delve into your unique requirements to craft a bespoke solution tailored precisely
+                    to your needs. Our process ensures every detail is considered, delivering an outcome
+                    that perfectly fits your vision and objectives.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/04/09/39/51/240_F_409395132_vvX9eMqggAAG6MsfjtyN0XqvYxq1IKa4.jpg" />
+                <h2>23. Personal Solution Planning </h2>
+                <p class="short">
+                    Navigate your challenges with a dedicated plan designed around your specific situation.
+                    We work closely with you to understand your goals and develop a clear, actionable roadmap for
+                    success.
+                    Our approach ensures personalized
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/04/67/84/17/240_F_467841780_LNr1hbS7YQ35zN3APJjRkCQ4rbSroGzV.jpg" />
+                <h2>24. Expert Guidance Package </h2>
+                <p class="short">
+                    Leverage our extensive industry knowledge to gain clarity and direction.
+                    This package offers comprehensive insights and strategic recommendations
+                    to help you overcome obstacles and achieve your desired outcomes
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/05/27/74/33/240_F_527743314_Cuj3jiC8AIWZkMtBHGVTedy0gXhMM6xa.jpg" />
+                <h2>25. Custom Project </h2>
+                <p class="short">
+                    Tailored to your unique needs, this service offers a flexible approach to tackle specific
+                    challenges or opportunities. We collaborate closely to define scope, objectives, and deliverables,
+                    ensuring a solution that perfectly fits your requirements.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/00/81/54/49/240_F_81544981_nXJ9wD9rYBUoNsXnWpePJ8xRmzpH0cOd.jpg" />
+                <h2>26. Personal Solution Planning </h2>
+                <p class="short">
+                    Discover the best path forward with personalized guidance.
+                    We engage in in-depth discussions to understand your
+                    individual situation and craft a bespoke strategy
+                    that addresses your unique goals.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t3.ftcdn.net/jpg/05/73/41/88/240_F_573418818_mtWoRCFGHPzxLikyNq3AJ5R6OZQhJ8Fb.jpg" />
+                <h2>27. Expert Guidance Package </h2>
+                <p class="short">Leverage our specialized knowledge to navigate complex situations.
+                    This package provides expert insights and strategic advice to
+                    help you make informed decisions and achieve optimal outcomes.
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/13/76/68/05/240_F_1376680582_TauUCFUaR5DeFH4CRmQbrG5vCxswO9sj.jpg" />
+                <h2>28. Custom Project </h2>
+                <p class="short">
+                    This service is designed to address unique client needs that fall outside standard offerings.
+                    We will collaborate closely with you to understand your specific requirements,
+                    scope the project meticulously, and deliver a tailored
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/11/79/10/75/240_F_1179107520_TnQr9oR1mqQGXP5M6VqDo89MIqh2UHPN.jpg" />
+                <h2>29. Personal Solution Planning </h2>
+                <p class="short">
+                    We offer dedicated support to help you map out the most effective strategy for your personal
+                    objectives.
+                    Through in-depth discussions, we will identify your core needs and develop a clear, actionable plan.
+                    This
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/00/85/84/47/240_F_85844748_3p0uVmDAMqAApZRvPFWHGk8M1mnyQY5J.jpg" />
+                <h2>30. Expert Guidance Package </h2>
+                <p class="short">
+                    Gain invaluable insights and strategic direction from our seasoned professionals.
+                    This package provides comprehensive expert advice tailored to your situation,
+                    helping you navigate complex decisions and optimize your approach. Receive
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/17/25/14/07/240_F_1725140742_iR8cupBNUyYnPGCbWT2aq1hjM1MxXZiT.jpg" />
+                <h2>31. Custom Project </h2>
+                <p class="short">
+                    This service is designed for unique client needs that require bespoke solutions.
+                    We collaborate closely with you to understand your specific requirements and
+                    deliver tailored outcomes. Our team is dedicated to innovating and
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://as1.ftcdn.net/v2/jpg/06/96/94/60/1000_F_696946067_eSJiy2juLKNy56sUP38Nkwbt9yGE20il.jpg" />
+                <h2>32. Personal Solution Planning </h2>
+                <p class="short">
+                    Discover a solution crafted exclusively for your individual circumstances and goals.
+                    We engage in in-depth discussions to thoroughly understand your situation.
+                    Our planning process ensures a clear, actionable roadmap
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://as1.ftcdn.net/v2/jpg/05/76/83/08/1000_F_576830889_Vj9KUNw9AM8qC0pwbd4ANbeaTE6xfdpx.jpg" />
+                <h2>33. Expert Guidance Package </h2>
+                <p class="short">
+                    Access unparalleled expertise to navigate complex decisions and opportunities.
+                    This package offers strategic insights and informed recommendations based on deep industry
+                    knowledge.
+                    We help you identify the best path
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://as2.ftcdn.net/v2/jpg/07/42/61/73/1000_F_742617333_NxnWQiEAbbNPx5ychvhNa2k5VOpLpoHS.jpg" />
+                <h2>34. Custom Project</h2>
+                <p class="short">
+                    This service is designed for unique challenges that require tailored solutions.
+                    We will work closely with you to understand your specific needs and develop a bespoke plan
+                    to achieve your goals. Expect innovative thinking and a
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t3.ftcdn.net/jpg/00/97/62/02/240_F_97620274_PDZcXSPyaPX9013TEm35CPg6yHILI00X.jpg" />
+                <h2>35. Personal Solution Planning </h2>
+                <p class="short">
+                    Our Personal Solution Planning service focuses on deep understanding of your individual
+                    requirements.
+                    We engage in a thorough discussion to uncover your specific objectives and constraints.
+                    Following this, we outline a
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/10/28/39/53/240_F_1028395345_qOybu2SEukCeQJEDs9YD1ENncWFcuflb.jpg" />
+                <h2>36. Expert Guidance Package </h2>
+                <p class="short">
+                    Leverage our deep industry knowledge with the Expert Guidance Package.
+                    This comprehensive service provides strategic insights and
+                    actionable recommendations to elevate your project.
+                    We help you navigate complex
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://as2.ftcdn.net/v2/jpg/07/54/38/45/1000_F_754384565_DYF9WFrJXsqsFDozFFYCCJxh57UXNIsq.jpg" />
+                <h2>37. Custom Project </h2>
+                <p class="short">
+                    This service is designed for unique challenges and bespoke solutions.
+                    We dive deep into your specific needs to craft a tailored approach,
+                    ensuring every detail aligns with your vision.
+                    Expect a collaborative process leading to an
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/16/30/78/03/240_F_1630780325_M67QsYut2KhAAMPeeoQWAsG68i9J28uL.jpg" />
+                <h2>38. Personal Solution Planning </h2>
+                <p class="short">
+                    Navigate your personal challenges with our dedicated planning service.
+                    We engage in in-depth conversations to understand your individual circumstances and goals.
+                    Our aim is to develop a clear, actionable plan that
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/12/18/83/13/240_F_1218831319_z45iRzTNgcUiUWHOvsJOiIU5XYOIHWNs.jpg" />
+                <h2>39. Expert Guidance Package </h2>
+                <p class="short">
+                    Access specialized knowledge and strategic insights with our comprehensive guidance package.
+                    We provide expert advice to help you overcome obstacles and achieve your objectives.
+                    This package offers a structured
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/07/44/12/59/240_F_744125946_ozskvlfBJDq1Vny54FgoiyPV6CgeyM0c.jpg" />
+                <h2>40. Custom Project </h2>
+                <p class="short">
+                    Tailored to your unique needs, this service provides a bespoke solution crafted from scratch.
+                    We collaborate closely to understand your vision and deliver a unique outcome.
+                    Perfect for situations where standard offerings
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://as2.ftcdn.net/v2/jpg/16/15/81/57/1000_F_1615815789_RRSnMnSbSrtQId7qoEj1w7DLSl7NVjfr.jpg" />
+                <h2>41. Personal Solution Planning </h2>
+                <p class="short">
+                    Get personalized advice and strategic planning designed just for you.
+                    We engage in deep conversations to understand your specific challenges and goals.
+                    Our aim is to map out the clearest path forward for your individual
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+
+            <div class="service-card">
+                <img src="https://t4.ftcdn.net/jpg/10/94/31/71/240_F_1094317178_z79rpHXdtCZ4BWhjhPizHUfXUDjK3fiC.jpg" />
+                <h2>42. Expert Guidance Package </h2>
+                <p class="short">
+                    Leverage our deep industry knowledge and experience to navigate complex challenges.
+                    This package offers strategic insights and creative problem-solving sessions
+                    to help you make informed decisions. Unlock new
+                </p>
+
+                <button class="toggle-btn">Show more</button>
+            </div>
+        </div>
+
+        <!-- Load More Button
+      <div class="center">
+        <button id="Free Consultation">Free Consultation</button>
+      </div>
+    </section> -->
+
+        <section class="clients-section">
+            <div class="consult-btn">
+                <button>Free Consultation</button>
+            </div>
+
+            <h2 class="clients-title">OUR CLIENTS</h2>
+
+            <div class="clients-logos">
+                <img src="https://dummyimage.com/150x60/ccc/000&text=KENO" />
+                <img src="https://dummyimage.com/150x60/ccc/000&text=Lendo" />
+                <img src="https://dummyimage.com/150x60/ccc/000&text=DMC" />
+                <img src="https://dummyimage.com/150x60/ccc/000&text=Athos" />
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <div class="TESTIMONIALS">
+                <p> TESTIMONIALS </p>
+                <br>
+                <br>
+            </div>
+
+            <div class="slider">
+
+                <div class="slides">
+
+                    <div class="slide">
+                        <img src="https://picsum.photos/900/400?1">
+                        <h3>Logistics Solutions</h3>
+                        <p>Efficient and reliable transport services.</p>
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://picsum.photos/900/400?2">
+                        <h3>Fleet Management</h3>
+                        <p>Manage your vehicles with smart solutions.</p>
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://picsum.photos/900/400?3">
+                        <h3>Global Shipping</h3>
+                        <p>Worldwide logistics made easy.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Dots -->
+                <div class="dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+            </div>
+
+            <section class="consultation-section">
+
+                <h1>GET A FREE CONSULTATION</h1>
+
+                <!-- MAP -->
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                <div class="footer-container">
+
+                    <!-- LEFT -->
+                    <div class="footer-box">
+                        <h3>JAMES CONSULTING</h3>
+                        <p>500 Terry Francine Street,<br>
+                            San Francisco, CA 94158</p>
+                        <p>Email: info@mysite.com</p>
+                        <p>Tel: 123-456-7890</p>
+                    </div>
+
+                    <!-- CENTER -->
+                    <div class="footer-box">
+                        <h3>MENU</h3>
+                        <p>About</p>
+                        <p>Services</p>
+                        <p>Projects</p>
+                        <p>Plans & Pricing</p>
+                        <p>Tools & Tips</p>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="footer-box">
+                        <h3>SOCIALS</h3>
+                        <p>Facebook</p>
+                        <p>Twitter</p>
+                        <br>
+                        <p>© 2035 by JAMES CONSULTING.</p>
+                        <p>Powered and secured by Wix</p>
+                    </div>
+
+                </div>
+
+            </footer>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <style>
+        body {
+            background-color: white;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #happy { background-color: yellow; color: black; }
+        #sad { background-color: blue; }
+        #angry { background-color: red; }
+        #relaxed { background-color: green; }
+
+        #message {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Choose your mood</h1>
+
+    <button id="happy">Happy</button>
+    <button id="sad">Sad</button>
+    <button id="angry">Angry</button>
+    <button id="relaxed">Relaxed</button>
+
+    <h2 id="message"></h2>
+
+    <script>
+        const happyBtn = document.getElementById("happy");
+        const sadBtn = document.getElementById("sad");
+        const angryBtn = document.getElementById("angry");
+        const relaxedBtn = document.getElementById("relaxed");
+        const message = document.getElementById("message");
+
+        happyBtn.addEventListener("click", function () {
+            document.body.style.backgroundColor = "yellow";
+            message.innerText = "Yay! Keep smiling 😊";
+        });
+
+        sadBtn.addEventListener("click", function () {
+            document.body.style.backgroundColor = "blue";
+            message.innerText = "It's okay to feel sad sometimes.., come back soon 😢";
+        });
+
+        angryBtn.addEventListener("click", function () {
+            document.body.style.backgroundColor = "red";
+            message.innerText = "Calm down, don't be angry 😡";
+        });
+
+        relaxedBtn.addEventListener("click", function () {
+            document.body.style.backgroundColor = "green";
+            message.innerText = "Stay calm and relaxed 🧘‍♀️";
+        });
+    </script>
+
+
+</body>
+</html>

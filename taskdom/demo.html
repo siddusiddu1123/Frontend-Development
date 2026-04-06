@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML TASK: Event Registration Page</title>
+
+    <style>
+        boby {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        .orange {
+            color: #8b428b;
+        }
+
+        .section {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 600px;
+            margin: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #bbb;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #e6e9ef;
+        }
+
+        .schedule-title {
+            background: #dfe3ea;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .form-box {
+            border: 1px solid #bbb;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .form-box h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .row label {
+            width: 110px;
+        }
+
+        .row input,
+        .row select {
+            flex: 1;
+            padding: 6px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML Task : <span class="orange">Event Registration Page</span></h1>
+
+    <hr>
+    <p>Center a simple wedpage for an event registration using lists, table, and form. Perfect for new corders! </p>
+    <h2 class="section">1. Create an Event Higlights List</h2>
+    <p>Use an Unordered list to list some event higlights</p>
+    <h3> Event Higlights</h3>
+
+    <ul>
+        <li>Guest Speakers</li>
+        <li>Workshops</li>
+        <li>Net working</li>
+    </ul>
+
+    <h2 class="section">2.Center an Event Schedule table</h2>
+    <p>Make a table to show the event schedule.</p>
+
+    <table>
+        <tr class="schedule-title">
+            <th colspan="4">Event Schedule</th>
+        </tr>
+
+        <tr>
+            <th>Time</th>
+            <th>session</th>
+            <th>room</th>
+        </tr>
+
+        <tr>
+            <td>10:00am</td>
+            <td>Wed Development Workshops</td>
+            <td>siddu</td>
+            <td>hall A</td>
+        </tr>
+    </table>
+
+    <h2 class="section">3.Center an Event Registration Form</h2>
+    <p>Bulid a simple form for user registration</p>
+
+    <div class="container">
+    </div>
+    </div>
+
+    <div class="form-box">
+        <h3> Register for the event</h3>
+
+        <div class="row">
+            <label>Name:</label>
+            <input type="text">
+        </div>
+
+        <div class="row">
+            <label>email</label>
+            <input type="email">
+        </div>
+
+        <div class="row">
+            <label>choose Ticket:
+            </label>
+            <select>
+                <option>standard</option>
+                <option>VIP</option>
+                <option>Premium
+
+                </option>
+            </select>
+        </div>
+
+        <button> Submit </button>
+
+    </div>
+
+</body>
+
+</html>

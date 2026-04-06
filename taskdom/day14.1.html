@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> "Profile Page" </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        /* Background */
+
+        .main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url("https://www.boningtontheatre.co.uk/wp-content/uploads/2025/04/MI8.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Container */
+
+        .card {
+            width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .left {
+            text-align: center;
+        }
+
+        .left img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .social {
+            margin-top: 20px;
+        }
+
+        .social i {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .right {
+            text-align: center;
+        }
+
+        .right h1 {
+            font-size: 40px;
+        }
+
+        .right p {
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            width: 250px;
+            padding: 12px;
+            margin: 15px auto;
+            border: 2px solid white;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="card">
+
+            <div class="left">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYeB7vR2GvXIL8EDS8AzoHEdP_Z5xec17RaQ&s">
+
+                <div class="social">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://twitter.com" target="_blank">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="right">
+
+                <h1> TOM CRUISE </h1>
+                <p>AMERICAN ACTOR AND FILM PRODUCER.</p>
+
+                <div class="btn">ABOUT HIM</div>
+                <div class="btn">AWARDS</div>
+                <div class="btn">ACTING CAREER</div>
+                <div class="btn">MOVIES</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

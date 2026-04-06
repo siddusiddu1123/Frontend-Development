@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+        }
+
+        .company {
+            padding: 60px;
+            background: #f5f7fb;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .left {
+            flex: 2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .learn {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0077cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .right {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-left: 1px solid #ccc;
+        }
+
+        .box {
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        .box:nth-child(2n) {
+            border-right: none;
+        }
+
+        .box h2 {
+            color: #1f4e79;
+            margin: 0;
+        }
+
+        .box p {
+            margin: 5px 0 15px;
+            color: #555;
+        }
+
+        .quarter {
+            padding: 50px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .quarter h2 {
+            color: #1f4e79;
+            margin-bottom: 40px;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 120px;
+        }
+
+        .item i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #1f4e79;
+        }
+
+        .item p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="company">
+
+        <div class="container">
+
+            <div class="left">
+                <p>
+                    <br>
+                    Cognizant is one of the world's leading professional services companies, helping clients become
+                    data-enabled and data-driven in the digital era.
+                    Our industry-based, consultative approach helps companies evolve into modern businesses. By leading
+                    clients in leveraging technologies essential to modern enterprises such as IoT, artificial
+                    intelligence, digital engineering and cloud, we enable new business and operating models that unlock
+                    new value in markets around the world.Cognizant's unwavering focus on our clients is led by over
+                    351,600
+                    associates, who deliver services and solutions tailored to specific industries and the unique needs
+                    of
+                    the organizations we serve.
+                </p>
+
+                 <a href="#" class="learn">Learn More <i class="fa-solid fa-angle-right"></i></a> 
+            </div>
+
+            <div class="right">
+
+                <div class="box">
+                    <h2>$21.1 billion</h2>
+                    <p>FY25 Revenue</p>
+                </div>
+
+                <div class="box">
+                    <h2>$4.56</h2>
+                    <p>FY25 GAAP EPS</p>
+                    <h2>$5.28</h2>
+                    <p>FY25 Adjusted EPS</p>
+                </div>
+
+                <div class="box">
+                    <h2>$2 billion</h2>
+                    <p>Capital Returned in FY25</p>
+                </div>
+
+                <div class="box">
+                    <h2>351,600</h2>
+                    <p>Employees as of Q4 2025</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bottom-section">
+
+        <div class="quarter-header">
+        <h2>Latest Quarter | Q4 2025</h2>
+        </div>
+
+        <div class="icons">
+
+            <div class="item">
+                <i class="fa-regular fa-file-lines"></i>
+                <p>Press Release <i class="fa-solid fa-angle-right"></i></p>
+            </div>
+
+            <div class="item">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>Presentation <i class="fa-solid fa-angle-right"></i></p>
+            </div>
+
+            <div class="item">
+                <i class="fa-regular fa-file"></i>
+                <p>Infographic <i class="fa-solid fa-angle-right"></i></p>
+            </div>
+
+            <div class="item">
+                <i class="fa-solid fa-laptop"></i>
+                <p>Webcast <i class="fa-solid fa-angle-right"></i></p>
+            </div>
+
+            <div class="item">
+                <i class="fa-regular fa-pen-to-square"></i>
+                <p>Transcript <i class="fa-solid fa-angle-right"></i></p>
+            </div>
+
+            <div class="item">
+                <i class="fa-regular fa-file-lines"></i>
+                <p>Form 10-K <i class="fa-solid fa-angle-right"></i></p>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
