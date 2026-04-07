@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -157,117 +158,202 @@
         }
 
 
-        
-/* TOP BAR */
-.top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background: #f2f2f2;
-    font-size: 14px;
-}
 
-/* Left */
-.top-left {
-    font-weight: bold;
-}
+        /* TOP BAR */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: #f2f2f2;
+            font-size: 14px;
+        }
 
-/* Center icons */
-.top-center {
-    display: flex;
-    gap: 10px;
-}
+        /* Left */
+        .top-left {
+            font-weight: bold;
+        }
 
-.top-center img {
-    width: 20px;
-    cursor: pointer;
-}
+        /* Center icons */
+        .top-center {
+            display: flex;
+            gap: 10px;
+        }
 
-/* Right section */
-.top-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .top-center img {
+            width: 20px;
+            cursor: pointer;
+        }
 
-.top-right a {
-    text-decoration: underline;
-}
+        /* Right section */
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.top-right button {
-    background: black;
-    color: white;
-    padding: 6px 15px;
-    border: none;
-    cursor: pointer;
-}
+        .top-right a {
+            text-decoration: underline;
+        }
+
+        .top-right button {
+            background: black;
+            color: white;
+            padding: 6px 15px;
+            border: none;
+            cursor: pointer;
+        }
 
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-    gap: 60px 40px; /* Vertical gap, Horizontal gap */
-    max-width: 1100px;
-    margin: 0 auto;
-}
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Two equal columns */
+            gap: 60px 40px;
+            /* Vertical gap, Horizontal gap */
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-/* Responsive adjustment for mobile */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        /* Responsive adjustment for mobile */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-.project-card {
-    text-align: left; /* Text aligns left under the image */
-}
+        .project-card {
+            text-align: left;
+            /* Text aligns left under the image */
+        }
 
-.project-card img {
-    width: 100%;
-    height: 300px; /* Fixed height for consistency */
-    object-fit: cover; /* Prevents image stretching */
-    margin-bottom: 25px;
-}
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            /* Fixed height for consistency */
+            object-fit: cover;
+            /* Prevents image stretching */
+            margin-bottom: 25px;
+        }
 
-.project-card h3 {
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    color: #0d3b5c;
-    text-transform: uppercase;
-}
+        .project-card h3 {
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #0d3b5c;
+            text-transform: uppercase;
+        }
 
-.project-card p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #333333;
-    font-weight: 300; /* Light weight for descriptions */
-}
-        
+        .project-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333333;
+            font-weight: 300;
+            /* Light weight for descriptions */
+        }
+
+        /* CHAT ICON */
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0d3b5c;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        /* CHAT BOX */
+        .chat-box {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 320px;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        /* HEADER */
+        .chat-header {
+            background: #0d3b5c;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* BODY */
+        .chat-body {
+            flex: 1;
+            padding: 10px;
+            background: #f2f2f2;
+            overflow-y: auto;
+        }
+
+        /* FOOTER */
+        .chat-footer {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .chat-footer button {
+            padding: 10px;
+            border: none;
+            background: #0d3b5c;
+            color: white;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="top-bar">
-    <!-- Left -->
-    <div class="top-left">WIX</div>
-    <!-- Center (icons) -->
-    <div class="top-center">
-        <a href="./preview.html"><img src="https://cdn-icons-png.flaticon.com/128/3474/3474360.png" alt="Computer"></a>   
-        <div> || </div>
-        <a href="./websitetask.html"> <img src="https://cdn-icons-png.flaticon.com/128/18887/18887773.png" alt="Phone"></a>
-      
-    </div>
+        <!-- Left -->
+        <div class="top-left">WIX</div>
+        <!-- Center (icons) -->
+        <div class="top-center">
+            <a href="./preview.html"><img src="https://cdn-icons-png.flaticon.com/128/3474/3474360.png"
+                    alt="Computer"></a>
+            <div> || </div>
+            <a href="./websitetask.html"> <img src="https://cdn-icons-png.flaticon.com/128/18887/18887773.png"
+                    alt="Phone"></a>
 
-    <!-- Right (text + button together) -->
-    <div class="top-right">
-        <span>Click edit and create your own amazing website</span>
-        <a href="#">Read More</a>
-        <button>Edit this site</button>
-    </div>
+        </div>
 
-</div>
+        <!-- Right (text + button together) -->
+        <div class="top-right">
+            <span>Click edit and create your own amazing website</span>
+            <a href="#">Read More</a>
+            <button>Edit this site</button>
+        </div>
+
+    </div>
 
     <!-- MAIN NAVBAR -->
     <header class="main-header">
@@ -280,7 +366,7 @@
             <a href="./priceAndGrowth.html">Plans & Pricing</a>
             <a href="./toolsAndTips.html">Tools & Tips</a>
             <a href="#contact">Contact</a>
-            <a href="#" class="login">Log In</a>
+            <a href="./login.html" class="login">Log In</a>
         </nav>
     </header>
 
@@ -288,86 +374,142 @@
 
     <section class="projects-section">
         <h1 style="display: flex; align-items: center; justify-content: center; padding: 40px;">PROJECTS</h1>
-        
+
         <div class="projects-grid">
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500" alt="Project 1">
+                <img src="https://img.freepik.com/free-photo/woman-retoucher-looking-camera-smiling-working-creative-media-agency-standing-front-webc_482257-3427.jpg?t=st=1775540877~exp=1775544477~hmac=954b13cbd3096f54e5c990568552a9c7d1991bd49fb97bdf65b3ec86c7319255&w=1060"
+                    alt="Project 1">
                 <h3>PROJECT 1</h3>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or
+                    double click me to add your own content and make changes to the font.</p>
             </div>
 
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500" alt="Project 2">
+                <img src="https://img.freepik.com/free-photo/young-manager-standing-up-relieve-back-pain_482257-67482.jpg?t=st=1775540999~exp=1775544599~hmac=eb3923fb30d9fde75073e14470bccab3a3795aaa1d8320a6fe2c1a1c17ee15f1&w=1060"
+                    alt="Project 2">
                 <h3>PROJECT 2</h3>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or
+                    double click me to add your own content and make changes to the font.</p>
             </div>
 
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500" alt="Project 3">
+                <img src="https://img.freepik.com/free-photo/modern-office-design-with-computer-equipment-inside-generated-by-ai_188544-22422.jpg?t=st=1775541196~exp=1775544796~hmac=0801493a8a903969b1922c8a6b5fa0bd323ce9212bbc4db636ad2fa7634746ab&w=1060"
+                    alt="Project 3">
                 <h3>PROJECT 3</h3>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or
+                    double click me to add your own content and make changes to the font.</p>
             </div>
 
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500" alt="Project 4">
+                <img src="https://img.freepik.com/free-photo/group-young-business-people-working-office_158595-5222.jpg?t=st=1775541111~exp=1775544711~hmac=2aa421dbaeb7953605719204049feae240177935a8d60a424b17efd45fd25a1b&w=1060"
+                    alt="Project 4">
                 <h3>PROJECT 4</h3>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.</p>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or
+                    double click me to add your own content and make changes to the font.</p>
             </div>
         </div>
     </section>
 
-     <section class="consultation-section">
+    <section class="consultation-section">
 
-                <h1>GET A FREE CONSULTATION</h1>
+        <h1>GET A FREE CONSULTATION</h1>
 
-                <!-- MAP -->
-                <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0" allowfullscreen>
-                    </iframe>
-                </div>
+        <!-- MAP -->
+        <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
 
-            </section>
+    </section>
 
-            <!-- FOOTER -->
-            <footer class="footer">
+    <!-- FOOTER -->
+    <footer class="footer">
 
-                <div class="footer-container" id="contact">
+        <div class="footer-container" id="contact">
 
-                    <!-- LEFT -->
-                    <div class="footer-box">
-                        <h3>JAMES CONSULTING</h3>
-                        <p>1st Floor, H, Vijaya Lakshmi Enclave, 2-108/43, 
-                            PJR Enclave Rd, PJR Colony, Gangaram, ICRISAT Colony, 
-                            Hyderabad, Telangana 500050,
-                            <br>
-                            </p>
-                        <p>Email:  oppty.in</p>
-                        <p>Tel: 094912 09900</p>
-                    </div>
+            <!-- LEFT -->
+            <div class="footer-box">
+                <h3>JAMES CONSULTING</h3>
+                <p>1st Floor, H, Vijaya Lakshmi Enclave, 2-108/43,
+                    PJR Enclave Rd, PJR Colony, Gangaram, ICRISAT Colony,
+                    Hyderabad, Telangana 500050,
+                    <br>
+                </p>
+                <p>Email: oppty.in</p>
+                <p>Tel: 094912 09900</p>
+            </div>
 
-                    <!-- CENTER -->
-                    <div class="footer-box">
-                        <h3>MENU</h3>
-                        <p>About</p>
-                        <p>Services</p>
-                        <p>Projects</p>
-                        <p>Plans & Pricing</p>
-                        <p>Tools & Tips</p>
-                    </div>
+            <!-- CENTER -->
+            <div class="footer-box">
+                <h3>MENU</h3>
+                <p>About</p>
+                <p>Services</p>
+                <p>Projects</p>
+                <p>Plans & Pricing</p>
+                <p>Tools & Tips</p>
+            </div>
 
-                    <!-- RIGHT -->
-                    <div class="footer-box">
-                        <h3>SOCIALS</h3>
-                        <p>Facebook</p>
-                        <p>Twitter</p>
-                        <br>
-                        <p>© 2035 by JAMES CONSULTING.</p>
-                        <p>Powered and secured by Wix</p>
-                    </div>
+            <!-- RIGHT -->
+            <div class="footer-box">
+                <h3>SOCIALS</h3>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <br>
+                <p>© 2035 by JAMES CONSULTING.</p>
+                <p>Powered and secured by Wix</p>
+            </div>
 
-                </div>
+        </div>
 
-            </footer>
+    </footer>
+
+    <!-- CHAT ICON -->
+    <div class="chat-icon" onclick="toggleChat()">
+        💬
+    </div>
+
+    <!-- CHAT BOX -->
+    <div class="chat-box" id="chatBox">
+
+        <div class="chat-header">
+            <span>Let's Chat!</span>
+            <span class="close-btn" onclick="toggleChat()">✖</span>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <p><b>Support:</b> Hi! How can I help you?</p>
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" id="messageInput" placeholder="Write your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+    </div>
 </body>
+<script>
+    function toggleChat() {
+        let box = document.getElementById("chatBox");
+        box.style.display = (box.style.display === "flex") ? "none" : "flex";
+    }
+
+    function sendMessage() {
+        let input = document.getElementById("messageInput");
+        let message = input.value.trim();
+
+        if (message === "") return;
+
+        let chatBody = document.getElementById("chatBody");
+
+        let msg = document.createElement("p");
+        msg.innerHTML = "<b>You:</b> " + message;
+
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        input.value = "";
+    }
+</script>
+
 </html>

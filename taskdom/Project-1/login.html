@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #161616, #383636);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #4facfe;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #007bff;
+        }
+
+        .link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .link span {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <!-- LOGIN FORM -->
+        <div id="loginFormBox">
+            <h2>Login</h2>
+
+            <input type="text" id="loginEmail" placeholder="Email"><br><br>
+            <input type="password" id="loginPassword" placeholder="Password"><br><br>
+
+            <button class="btn" onclick="login()">Login</button>
+
+            <div class="link">
+                Not registered? <span onclick="showSignup()">Signup</span>
+            </div>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signupFormBox" style="display:none;">
+            <h2>Signup</h2>
+
+            <input type="text" id="signupEmail" placeholder="Email"><br><br>
+            <input type="password" id="signupPassword" placeholder="Password"><br><br>
+
+            <button class="btn" onclick="signup()">Signup</button>
+
+            <div class="link">
+                Already have an account? <span onclick="showLogin()">Login</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showSignup() {
+            document.getElementById("loginFormBox").style.display = "none";
+            document.getElementById("signupFormBox").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("signupFormBox").style.display = "none";
+            document.getElementById("loginFormBox").style.display = "block";
+        }
+
+        function login() {
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+
+            if (email === "" || password === "") {
+                alert("Please fill all fields");
+            } else {
+                alert("Login Successful ✅");
+            }
+        }
+
+        function signup() {
+            let email = document.getElementById("signupEmail").value;
+            let password = document.getElementById("signupPassword").value;
+
+            if (email === "" || password.length < 6) {
+                alert("Enter valid details (Password min 6 chars)");
+            } else {
+                alert("Signup Successful 🎉");
+                showLogin();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
