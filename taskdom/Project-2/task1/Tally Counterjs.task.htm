@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tally Counter </title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            background: linear-gradient(135deg, #6a82fb, #8e44ad);
+        }
+
+        .card {
+            background: #575353;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            letter-spacing: 2px;
+            color: #e4d720;
+        }
+
+        #count {
+            font-size: 80px;
+            color: #1abc9c;
+            margin: 20px 0;
+        }
+
+        .btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #e0e0e0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .reset {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #d6d6d6;
+        }
+
+        #count {
+            font-size: 90px;
+            font-weight: bold;
+            color: #ff4757;
+            text-shadow: 2px 2px 0 #000, 4px 4px 0 #999, 6px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            background: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb') no-repeat center/cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>TALLY COUNTER</h3>
+
+        <div id="count">0</div>
+        <div class="btns"> 
+            <button onclick="minus()">- Minus</button>
+             <button onclick="plus()">+ Plus</button> </div>
+        <button class="reset" onclick="reset()">⟳ Reset Counter</button>
+    </div>
+    <script>
+
+        let count = 0;
+        function plus() { count++; update(); }
+        function minus() { count--; update(); }
+        function reset() { count = 0; update(); }
+        function update() { document.getElementById("count").innerText = count; } 
+        
+    </script>
+</body>
+
+</html>

@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dices Roller </title>
 
     <style>
-    
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-}
-#dice{
-    font-size: 250px;   /* increase size */
-    margin: 0;
-}
-button {
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
-     width: 150px;
-    height: 60px;
-    font-size: 20px;
-}
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
 
+        #dice {
+            font-size: 250px;
+            /* increase size */
+            margin: 0;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            width: 150px;
+            height: 60px;
+            font-size: 20px;
+        }
     </style>
 </head>
+
 <body>
     <div align="center">
         <h1> 🎲 Dice Roller Simulator 🎲</h1>
-    <h1 id="dice">🎲</h1>
-    <button onclick="roll()">Roll</button>
-</div>
+        <h1 id="dice">🎲</h1>
+        <button onclick="roll()">Roll</button>
+    </div>
 
-<script>
-function roll() {
-    let d = ["⚀","⚁","⚂","⚃","⚄","⚅"];
-    document.getElementById("dice").innerHTML = d[Math.floor(Math.random()*6)];
-    document.body.style.background = '#' + Math.floor(Math.random()*16777215).toString(16);
-}
-</script>
+    <script>
+        function roll() {
+            let d = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+            document.getElementById("dice").innerHTML = d[Math.floor(Math.random() * 6)];
+            document.body.style.background = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+    </script>
 </body>
+
 </html>
