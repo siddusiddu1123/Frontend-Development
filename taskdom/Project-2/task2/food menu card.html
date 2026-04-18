@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Food Menu Card </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url(https://img.freepik.com/premium-photo/food-menu-white-background-empty-space-mrnu-template-ai-generated_1402928-1131.jpg?ga=GA1.1.1538056757.1774345104&semt=ais_hybrid&w=740&q=80);
+            padding: 20px;
+        }
+
+        .card  {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .pages {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1cf300;
+            margin-bottom: 10px;
+        }
+
+        .offers {
+            text-align: center;
+            background: #ce1111;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #f5f5f5;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid #1582ca;
+            padding-bottom: 5px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 12px;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .details h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .tag {
+            font-size: 12px;
+            color: green;
+        }
+
+        .nonveg {
+            color: rgb(201, 69, 69);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #ececec;
+        }
+
+        @media(max-width:700px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card ">
+
+        <!-- PAGE 1 -->
+        <div class="page">
+            <h1> TAKEAWAY FOODS </h1>
+            <div class="offer">🔥 20% Discount on Orders Above ₹999 🔥</div>
+
+            <h2> Starters </h2>
+            <div class="menu-grid">
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300" alt="">
+                    <div class="details">
+                        <h3>Samosa</h3>
+                        <p class="tag">● Veg</p>
+                        <p class="price">₹40</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://c.ndtvimg.com/2024-07/9fe2b05g_paneer-tikka_625x300_01_July_24.jpg" alt="">
+                    <div class="details">
+                        <h3>Paneer Tikka</h3>
+                        <p class="tag">● Veg</p>
+                        <p class="price">₹180</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=300" alt="">
+                    <div class="details">
+                        <h3>French Fries</h3>
+                        <p class="tag">● Veg</p>
+                        <p class="price">₹90</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6KnfjEzBgxErFe1pnwT31Guh7XwR3Kcbmug&s" alt="">
+                    <div class="details">
+                        <h3>Chilli panner </h3>
+                        <p class="tag">● Veg</p>
+                        <p class="price">₹90</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-DHpl1_9x-2dqvl82mBC3pSfKjlQNPf0yHA&s" alt="">
+                    <div class="details">
+                        <h3> Chicken Lollipop </h3>
+                        <p class="tag">●  Non Veg</p>
+                        <p class="price">₹190</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7K7ofYYNCYORbjiPko58EAJNw-K9EgmyXBA&s" alt="">
+                    <div class="details">
+                        <h3> Amritsari Tandoori Chicken </h3>
+                        <p class="tag">●  Non Veg</p>
+                        <p class="price">₹390</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsxlgfGTor2zJQCZFy_bD2mE_VkCKpXJLMkQ&s" alt="">
+                    <div class="details">
+                        <h3> Chicken Kebab </h3>
+                        <p class="tag">●  Non Veg</p>
+                        <p class="price">₹150</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=300" alt="">
+                    <div class="details">
+                        <h3>French Fries</h3>
+                        <p class="tag">● Veg</p>
+                        <p class="price">₹90</p>
+                    </div>
+                </div>
+
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=300" alt="">
+                    <div class="details">
+                        <h3>Veg Manchurian</h3>
+                        <p class="tag">● Veg</p>
+                        <p class="price">₹160</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+     
+           <!-- PAGE 2 -->
+        <div class="page">
+            <h1>🍗 Non Veg Special</h1>
+            <div class="offer">🔥 Only on Wednesday Offer Chicken Items 🔥</div>
+
+            <h2>Non Veg Main Course</h2>
+            <div class="menu-grid">
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=300" alt="">
+                    <div class="details">
+                        <h3>Chicken Biryani</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹250</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300" alt="">
+                    <div class="details">
+                        <h3>Butter Chicken</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹320</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=300" alt="">
+                    <div class="details">
+                        <h3>Chicken Fry</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹220</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=300" alt="">
+                    <div class="details">
+                        <h3>Fish Curry</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹280</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE5vNhgRahccE3SkRk1M0aJnY-3pD74rOkxA&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Chicken Biryani Jumbo </h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹799</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeyTH2pYOcExiC3PMYred9aq1UbRduLId4wg&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Boneless Chicken Fried Piece Biryani</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹300</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9aURHNrGZweOGYRrxOvaxZjB5HIqsxQJuxw&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Chicken 65 Mandi</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹349</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-VALfhQzICzGbexk0n0bY0hvkXhkOnZ3cKy4bntH&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Samoil Shawaram [Regular]</h3>
+                        <p class="tag nonveg">● Non Veg</p>
+                        <p class="price">₹117</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+         <!-- PAGE 3 -->
+        <div class="page">
+            <h1>🍰 Desserts & Drinks</h1>
+            <div class="offer">🔥 Free Cool Drink on Orders Above ₹1499 🔥</div>
+
+            <h2>Sweet Items</h2>
+            <div class="menu-grid">
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTlUYZ5T6iy9wk_ziyNisPbo-QSXLJLs1LnqAkKRpwf8_hPAql8FfkRIFHfk19WWst5hxaFV9YXUfxrFnTDo4sc3nGpnlxZyinw-R0n66g"
+                        alt="">
+                    <div class="details">
+                        <h3> Doughunt </h3>
+                        <p class="price">₹90</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5qOo400aqp9sFxSuKWHrv2hiSRIvx_wQasg&s"
+                        alt="">
+                    <div class="details">
+                        <h3>pastry</h3>
+                        <p class="price">₹140</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTytOcL8IP92kdBR8FNvf8wao6ybhWwaKcmxw&s"
+                        alt="">
+                    <div class="details">
+                        <h3>frozen yogurt</h3>
+                        <p class="price">₹70</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300" alt="">
+                    <div class="details">
+                        <h3> coffee</h3>
+                        <p class="price">₹50</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkpbJWKkyGZd0gHqar2PZbbDQ0pBc997UOg&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Lassi </h3>
+                        <p class="price">₹100</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShxVvo-RiDN4VZTFqY319ILOkKdxE60t0MeQ&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Fruit Cocktail</h3>
+                        <p class="price">₹75</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://www.thespruceeats.com/thmb/OuAu_fqIirooQj5L7HjeD87GjVk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/mango-mojito-recipe-5197855-hero-01-8a9be17c165242c39b2cb88d401d266f.jpg"
+                        alt="">
+                    <div class="details">
+                        <h3>mojito</h3>
+                        <p class="price">₹90</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjifhFq8CWJr_ZznNgfz5Cc8gZtRnbFdDX9w&s"
+                        alt="">
+                    <div class="details">
+                        <h3>Pepsi</h3>
+                        <p class="price">₹25</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwYBWHt0xcXhRtdTqfzqb5sISvKfn2RIGT3w&s"
+                        alt="">
+                    <div class="details">
+                        <h3>7up</h3>
+                        <p class="price">₹30</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF1z9cM72XYNE8nBBKNdQpwJ6w3r5A1D26iQ&s"
+                        alt="">
+                    <div class="details">
+                        <h3>sprite</h3>
+                        <p class="price">₹40</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer>
+                Thank You Visit Again | 📞 +91 9391693549
+            </footer>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
