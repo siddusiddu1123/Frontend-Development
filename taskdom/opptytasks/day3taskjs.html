@@ -15,24 +15,24 @@
         }
 
         body {
-            background: slateblue;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 500px;
+            width: 100%;
+            max-width: 800px;
         }
 
         .box {
-            background: slateblue;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         h1,
@@ -133,15 +133,8 @@
 
             <!-- SOURCE TEXT -->
             <div class="source-box" id="sourceText">
-                Mahendra Singh Dhoni (born 7 July 1981), commonly known as M. S. Dhoni, is a cricketer of India team
-                Dhoni has also been given many awards, such as the ICC ODI Player of the Year award in 2008 and 2009
-                (the first Indian player to achieve this), the Rajiv Gandhi Khel Ratna award in 2007 and the Padma Shri,
-                India's fourth-highest civilian honour, in 2009.
-                On 6 February 2015, Dhoni's daughter was born. He had played his 300th ODI match and scored 49* runs. MS
-                Dhoni is the only captain to win all the ICC trophies.
-                M.S Dhoni is a right-handed batsman and also plays the role of a wicket-keeper. He mostly plays shots in
-                the back foot, that is, he plays shots shifting his body weight on the right leg. He has his own famous
-                cricket shot, called the "Helicopter", that can pick balls and send them in the galleries for six runs.
+                The quick brown fox jumps over the lazy dog. Practice typing daily to improve your speed and accuracy.
+                Success comes with consistency and patience.
             </div>
 
             <div class="stats">
@@ -221,8 +214,8 @@
 
             time--;
 
-            let min = Math.floor(time / 60);
-            let sec = time % 60;
+            let min = Math.floor(time / 1000);
+            let sec = time % 1000;
 
             timer.innerText = `${min}:${sec < 10 ? "0" + sec : sec}`;
 
