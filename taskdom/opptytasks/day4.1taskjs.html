@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Masterclass | Variables &  Data Types</title>
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #8b5cf6;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 30px;
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav button {
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            color: #cbd5e1;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        nav button.active-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .page {
+            display: none;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h2 {
+            color: #818cf8;
+            margin-bottom: 20px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        .code-wrapper {
+            position: relative;
+        }
+
+        pre {
+            background: #000000;
+            color: #34d399;
+            /* Emerald Green */
+            padding: 25px;
+            border-radius: 16px;
+            overflow: auto;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>      JavaScript 
+        <br> Variables &  Data Types
+    </header>
+
+    <nav id="nav">
+        <button class="active-btn" onclick="showPage('let', this)">let</button>
+        <button onclick="showPage('const', this)">const</button>
+        <button onclick="showPage('var', this)">var</button>
+        <button onclick="showPage('string', this)">String</button>
+        <button onclick="showPage('number', this)">Number</button>
+        <button onclick="showPage('boolean', this)">Boolean</button>
+        <button onclick="showPage('array', this)">Array</button>
+        <button onclick="showPage('object', this)">Object</button>
+    </nav>
+
+    <div class="container">
+        <div class="page active" id="let">
+            <span class="badge">Variable</span>
+            <h2>The let Keyword</h2>
+            <p>Use <b>let</b> when you expect the variable to be reassigned. It is block-scoped, meaning it only exists
+                within the { } where it was created.</p>
+            <div class="code-wrapper">
+                <pre>let age = 20;
+age = 25; // Reassignment works!
+
+console.log(age);</pre>
+            </div>
+        </div>
+
+        <div class="page" id="const">
+            <span class="badge">Variable</span>
+            <h2>The const Keyword</h2>
+            <p>Short for "constant". Use this by default for values that should not change. It prevents accidental bugs
+                by locking the value.</p>
+            <pre>const pi = 3.14;
+// pi = 3.15; // This would throw an error!
+
+console.log(pi);</pre>
+        </div>
+
+        <div class="page" id="var">
+            <span class="badge">Legacy</span>
+            <h2>The var Keyword</h2>
+            <p>The old way of declaring variables. It has function scope and can be "hoisted," which often leads to
+                confusing bugs. Avoid using it in modern JS.</p>
+            <pre>var name = "John";
+var name = "David"; // Redeclaration is allowed (bad!)
+
+console.log(name);</pre>
+        </div>
+
+        <div class="page" id="string">
+            <span class="badge">Data Type</span>
+            <h2>Strings</h2>
+            <p>Used to represent sequence of characters (text). You can use single quotes, double quotes, or backticks.
+            </p>
+            <pre>let user = "Siddaih";
+let greeting = `Hello ${user}`; // Template literal
+
+console.log(greeting);</pre>
+        </div>
+
+        <div class="page" id="number">
+            <span class="badge">Data Type</span>
+            <h2>Numbers</h2>
+            <p>JavaScript has only one type of number. It can be written with or without decimals.</p>
+            <pre>let age = 22;
+let price = 99.99;
+
+console.log(typeof age); // "number"</pre>
+        </div>
+
+        <div class="page" id="boolean">
+            <span class="badge">Data Type</span>
+            <h2>Booleans</h2>
+            <p>Represent logical entities and can have only two values: <b>true</b> or <b>false</b>. Great for
+                conditional logic.</p>
+            <pre>let isStudent = true;
+let hasFinished = false;
+
+if(isStudent) {
+  console.log("Welcome to the class!");
+}</pre>
+        </div>
+
+        <div class="page" id="array">
+            <span class="badge">Structure</span>
+            <h2>Arrays</h2>
+            <p>Arrays are used to store multiple values in a single variable, accessed by an index number (starting from
+                0).</p>
+            <pre>let fruits = ["Apple", "Mango", "Orange"];
+
+console.log(fruits.length); // 3
+console.log(fruits); // "Mango"</pre>
+        </div>
+
+        <div class="page" id="object">
+            <span class="badge">Structure</span>
+            <h2>Objects</h2>
+            <p>The most important data type. Objects allow you to group related data together in key-value pairs.</p>
+            <pre>let student = 
+
+console.log(student.name);</pre>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId, btnElement) {
+            // Hide all pages
+            let pages = document.querySelectorAll(".page");
+            pages.forEach(page => page.classList.remove("active"));
+
+            // Remove active class from all buttons
+            let buttons = document.querySelectorAll("nav button");
+            buttons.forEach(btn => btn.classList.remove("active-btn"));
+
+            // Show selected page and highlight button
+            document.getElementById(pageId).classList.add("active");
+            btnElement.classList.add("active-btn");
+
+            // Scroll to top of content smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+
+</html>

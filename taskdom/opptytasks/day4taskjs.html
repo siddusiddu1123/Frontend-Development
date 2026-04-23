@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N S College Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        /* Navbar */
+        nav {
+            background: #081b52;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffd54f;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: #ffd54f;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #081b52, #2563eb);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+        }
+
+        .hero p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            background: #ffd54f;
+            color: #111;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Section */
+        section {
+            padding: 50px 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            color: #081b52;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+            text-align: center;
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #081b52;
+            margin-bottom: 15px;
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Form */
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        footer h3 {
+            color: #ffd54f;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .copy {
+            text-align: center;
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, .2);
+            padding-top: 15px;
+        }
+
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <img src="ChatGPT Image Apr 23, 2026, 12_20_10 PM.png">
+            <span>N S College</span>
+        </div>
+
+        <ul>
+            <li><a onclick="showPage('landing')">Landing</a></li>
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('enroll')">Enrollment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Landing Page -->
+    <div class="page active" id="landing">
+
+        <div class="hero">
+            <h1>Welcome to N S College</h1>
+            <p>Shaping Futures, Building Leaders</p>
+            <button class="btn" onclick="showPage('home')">Explore More</button>
+        </div>
+
+        <section>
+            <img src="ChatGPT Image Apr 23, 2026, 12_20_10 PM.png" class="banner">
+        </section>
+
+    </div>
+
+    <!-- Home Page -->
+    <div class="page" id="home">
+
+        <section>
+            <h2 class="title">Our Branches</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>CSE</h3>
+                    <p>Computer Science Engineering</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>EEE</h3>
+                    <p>Electrical Engineering</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-building"></i>
+                    <h3>Civil</h3>
+                    <p>Civil Engineering</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Mechanical</h3>
+                    <p>Mechanical Engineering</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="title">Placement Highlights</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <h2>95%</h2>
+                    <p>Placement Rate</p>
+                </div>
+
+                <div class="card">
+                    <h2>₹42 LPA</h2>
+                    <p>Highest Package</p>
+                </div>
+
+                <div class="card">
+                    <h2>200+</h2>
+                    <p>Top Companies</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Enrollment Page -->
+    <div class="page" id="enroll">
+
+        <section>
+            <h2 class="title">Enrollment Form</h2>
+
+            <form onsubmit="submitForm(event)">
+                <input type="text" id="name" placeholder="Enter Name" required>
+                <input type="email" id="email" placeholder="Enter Email" required>
+
+                <select id="branch" required>
+                    <option value="">Select Branch</option>
+                    <option>CSE</option>
+                    <option>EEE</option>
+                    <option>Civil</option>
+                    <option>Mechanical</option>
+                </select>
+
+                <button class="btn" style="width:100%">Submit</button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+
+            <div>
+                <h3>About College</h3>
+                <p>N S College is a premier educational institution focused on quality education, innovation,
+                    leadership, and career success.</p>
+            </div>
+
+            <div>
+                <h3>Facilities</h3>
+                <p>✔ Smart Classrooms</p>
+                <p>✔ Digital Library</p>
+                <p>✔ Sports Ground</p>
+                <p>✔ Computer Labs</p>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>📍 Hyderabad, India</p>
+                <p>📞 +91 9876543210</p>
+                <p>📧 info@nscollege.com</p>
+            </div>
+
+            <div>
+                <h3>Top Recruiters</h3>
+                <p>Google</p>
+                <p>Microsoft</p>
+                <p>Amazon</p>
+                <p>TCS</p>
+            </div>
+
+        </div>
+
+        <div class="copy">
+            © 2025 N S College | All Rights Reserved
+        </div>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            document.querySelectorAll(".page").forEach(p => {
+                p.classList.remove("active");
+            });
+            document.getElementById(page).classList.add("active");
+            window.scrollTo(0, 0);
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let branch = document.getElementById("branch").value;
+
+            alert("🎉 Congratulations " + name + "!\nYou enrolled in " + branch);
+
+            e.target.reset();
+            showPage("landing");
+        }
+    </script>
+
+</body>
+
+</html>
