@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Containers - Side by Side </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url(https://www.pngitem.com/pimgs/m/2-22665_online-rainbow-colours-graphic-design-hd-png-download.png);
+            font-family: "Segoe UI", Roboto, sans-serif;
+            gap: 40px;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+        }
+
+        .container {
+            width: 450px;
+            height: 450px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .container-1 {
+            background: rgba(22, 33, 62, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .container-2 {
+            background:  rgba(22, 33, 62, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .percent-display {
+            font-size: 80px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+
+        .label-text {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-track {
+            width: 80%;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #fff;
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+
+        .color-buttons {
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        .color-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .color-btn:hover {
+            transform: translateY(-8px) scale(1.1);
+            border-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .c1-red {
+            background: #ff416c;
+        }
+
+        .c1-green {
+            background: #00b09b;
+        }
+
+        .c1-blue {
+            background: #0052d4;
+        }
+
+        .c2-yellow {
+            background: #f7971e;
+        }
+
+        .c2-purple {
+            background: #8e2de2;
+        }
+
+        .c2-orange {
+            background: #f12711;
+        }
+
+
+        .active-red {
+            background: #ff416c;
+            box-shadow: 0 0 60px rgba(255, 65, 108, 0.5);
+        }
+
+        .active-green {
+            background: #00b09b;
+            box-shadow: 0 0 60px rgba(0, 176, 155, 0.5);
+        }
+
+        .active-blue {
+            background: #0052d4;
+            box-shadow: 0 0 60px rgba(0, 82, 212, 0.5);
+        }
+
+        .active-yellow {
+            background: #f7971e;
+            box-shadow: 0 0 60px rgba(247, 151, 30, 0.5);
+        }
+
+        .active-purple {
+            background: #8e2de2;
+            box-shadow: 0 0 60px rgba(142, 45, 226, 0.5);
+        }
+
+        .active-orange {
+            background: #f12711;
+            box-shadow: 0 0 60px rgba(241, 39, 17, 0.5);
+        }
+
+
+        .restart-btn {
+            padding: 18px 80px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .restart-btn:hover {
+            background: #fff;
+            color: #0f0c29;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse-anim {
+            animation: pulse 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="container container-1" id="container1">
+            <div class="percent-display" id="percent1">0%</div>
+            <div class="label-text" id="label1">Box 1 Readiness</div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="fill1"></div>
+            </div>
+
+            <div class="color-buttons">
+                <button class="color-btn c1-red" onclick="activate(1, 'red', 45)"></button>
+                <button class="color-btn c1-green" onclick="activate(1, 'green', 80)"></button>
+                <button class="color-btn c1-blue" onclick="activate(1, 'blue', 100)"></button>
+            </div>
+        </div>
+
+        <div class="container container-2" id="container2">
+            <div class="percent-display" id="percent2">0%</div>
+            <div class="label-text" id="label2">Box 2 Readiness</div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="fill2"></div>
+            </div>
+
+            <div class="color-buttons">
+                <button class="color-btn c2-yellow" onclick="activate(2, 'yellow', 35)"></button>
+                <button class="color-btn c2-purple" onclick="activate(2, 'purple', 70)"></button>
+                <button class="color-btn c2-orange" onclick="activate(2, 'orange', 95)"></button>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="restart-btn" onclick="resetAll()">🔄 RESTART SYSTEM</button>
+
+    <script>
+        function activate(num, color, targetPercent) {
+            const container = document.getElementById(`container${num}`);
+            const fill = document.getElementById(`fill${num}`);
+            const percentText = document.getElementById(`percent${num}`);
+            const label = document.getElementById(`label${num}`);
+
+            // Update visuals
+            container.className = `container container-${num} active-${color} pulse-anim`;
+            fill.style.width = targetPercent + "%";
+
+            // Counter animation
+            let current = 0;
+            const duration = 1000;
+            const stepTime = Math.abs(Math.floor(duration / targetPercent));
+
+            const timer = setInterval(() => {
+                if (current >= targetPercent) {
+                    clearInterval(timer);
+                } else {
+                    current++;
+                    percentText.textContent = current + "%";
+                }
+            }, stepTime);
+
+            label.textContent = `${color} mode engaged`;
+        }
+
+        function resetAll() {
+            for (let i = 1; i <= 2; i++) {
+                const container = document.getElementById(`container${i}`);
+                container.className = `container container-${i}`;
+                document.getElementById(`fill${i}`).style.width = "0%";
+                document.getElementById(`percent${i}`).textContent = "0%";
+                document.getElementById(`label${i}`).textContent = `Box ${i} Readiness`;
+
+                // Reset animation
+                container.style.transform = "scale(0.95)";
+                setTimeout(() => { container.style.transform = "scale(1)"; }, 150);
+            }
+        }
+    </script>
+</body>
+
+</html>
