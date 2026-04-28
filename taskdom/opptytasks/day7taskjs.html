@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly | My Task History</title>
+
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --success: #00b894;
+            --danger: #ff7675;
+            --info: #0984e3;
+            --dark: #2d3436;
+            --light: #fdfdff;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+
+            /* Button Gradients */
+            --btn-add-bg: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            --btn-save-bg: linear-gradient(135deg, #0984e3 0%, #6c5ce7 100%);
+            --btn-clear-bg: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+
+            /* Transitions Variables */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: url('https://thumbs.dreamstime.com/b/you-can-concept-turned-cube-changes-words-t-to-beautiful-orange-background-busine-business-vision-determination-copy-203405370.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+        }
+
+        .date-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+            border: 1px solid #e1e8ef;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            padding: 12px;
+            border: 2px solid #dfe6e9;
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        /* --- ACTIONS SECTION (The Center Row) --- */
+        .actions {
+            display: flex;
+            justify-content: center;
+            /* Centers buttons horizontally */
+            align-items: center;
+            gap: 20px;
+            /* Space between buttons */
+            margin-top: 40px;
+            padding: 10px;
+            flex-wrap: wrap;
+            /* Wrap for mobile screens */
+        }
+
+        /* --- TRANSITION BOX BUTTONS --- */
+        .actions button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+            /* Transition Logic */
+            transition: var(--transition-bounce);
+        }
+
+        /* Transition States */
+        .actions button:hover {
+            transform: translateY(-5px) scale(1.05);
+            /* Moves up and grows */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .actions button:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        /* Button Gradients */
+        .btn-add {
+            background: var(--btn-add-bg);
+        }
+
+        .btn-save {
+            background: var(--btn-save-bg);
+        }
+
+        .btn-clear {
+            background: var(--btn-clear-bg);
+        }
+
+        /* Table & Row Styles */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .task-row {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            transition: var(--transition-smooth);
+        }
+
+        .completed-row {
+            opacity: 0.6;
+            background: #f1f2f6;
+        }
+
+        .completed-row input[type="text"] {
+            text-decoration: line-through;
+            background: transparent;
+        }
+
+        td {
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .btn-delete-row {
+            background: transparent;
+            color: var(--danger);
+            font-size: 1.2rem;
+            border-radius: 50%;
+            padding: 5px 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-delete-row:hover {
+            background: #ffeaea;
+            transform: scale(1.1);
+        }
+
+        .status {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: #2d3436;
+            color: white;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.4s;
+            z-index: 1000;
+        }
+
+        .status.show {
+            opacity: 1;
+            bottom: 50px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .date-section {
+                flex-direction: column;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .actions button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📋 Structure of a Task List </h1>
+
+        <div class="date-section">
+            <label for="date">Daily Log For</label>
+            <input type="date" id="date" onchange="loadTasks()">
+        </div>
+
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th style="width: 8%">#</th>
+                    <th style="width: 67%">Task Description</th>
+                    <th style="width: 15%">Done</th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody id="taskBody"></tbody>
+        </table>
+
+        <div class="actions">
+            <button class="btn-add" onclick="addRow()">
+                <span>+</span> Add Task
+            </button>
+            <button class="btn-save" onclick="saveTasks()">
+                <span>💾</span> Save Changes
+            </button>
+            <button class="btn-clear" onclick="clearDay()">
+                <span>🗑</span> Clear Day
+            </button>
+        </div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <script>
+        const taskBody = document.getElementById('taskBody');
+        const dateInput = document.getElementById('date');
+        const status = document.getElementById('status');
+
+        // 1. Initialize today
+        dateInput.valueAsDate = new Date();
+
+        function loadTasks() {
+            const selectedDate = dateInput.value;
+            const history = JSON.parse(localStorage.getItem('taskHistory')) || {};
+
+            taskBody.innerHTML = '';
+
+            if (history[selectedDate] && history[selectedDate].length > 0) {
+                history[selectedDate].forEach((t) => {
+                    addRow(t.task, t.completed);
+                });
+                showStatus(`Loaded records for ${selectedDate}`);
+            } else {
+                addRow(); // Default starting row
+            }
+            updateNumbers();
+        }
+
+        function addRow(task = '', completed = false) {
+            const tr = document.createElement('tr');
+            tr.className = 'task-row' + (completed ? ' completed-row' : '');
+
+            tr.innerHTML = `
+                <td class="sl-no"></td>
+                <td><input type="text" value="${task}" placeholder="Enter task name..." style="width:100%; border:none; outline:none; font-size:1rem;"></td>
+                <td><input type="checkbox" ${completed ? 'checked' : ''} style="width:20px; height:20px; cursor:pointer;"></td>
+                <td><button class="btn-delete-row" title="Remove Task" onclick="removeRow(this)">✕</button></td>
+            `;
+
+            const checkbox = tr.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', e => {
+                tr.classList.toggle('completed-row', e.target.checked);
+            });
+
+            taskBody.appendChild(tr);
+            updateNumbers();
+        }
+
+        function removeRow(btn) {
+            const row = btn.closest('tr');
+            row.style.transform = "translateX(50px)";
+            row.style.opacity = "0";
+            setTimeout(() => {
+                row.remove();
+                updateNumbers();
+                if (taskBody.children.length === 0) addRow();
+            }, 300);
+        }
+
+        function updateNumbers() {
+            [...taskBody.children].forEach((row, idx) => {
+                row.querySelector('.sl-no').textContent = idx + 1;
+            });
+        }
+
+        function saveTasks() {
+            const selectedDate = dateInput.value;
+            if (!selectedDate) return alert("Please select a date");
+
+            const tasks = [...taskBody.children].map(tr => ({
+                task: tr.querySelector('input[type="text"]').value,
+                completed: tr.querySelector('input[type="checkbox"]').checked
+            })).filter(t => t.task.trim() !== '');
+
+            const history = JSON.parse(localStorage.getItem('taskHistory')) || {};
+            history[selectedDate] = tasks;
+
+            localStorage.setItem('taskHistory', JSON.stringify(history));
+            showStatus(`✓ Saved successfully!`);
+        }
+
+        function clearDay() {
+            if (confirm('Delete all tasks for this date?')) {
+                const selectedDate = dateInput.value;
+                const history = JSON.parse(localStorage.getItem('taskHistory')) || {};
+                delete history[selectedDate];
+                localStorage.setItem('taskHistory', JSON.stringify(history));
+
+                taskBody.innerHTML = '';
+                addRow();
+                showStatus('History cleared for this date');
+            }
+        }
+
+        function showStatus(msg) {
+            status.textContent = msg;
+            status.classList.add('show');
+            setTimeout(() => { status.classList.remove('show'); }, 3000);
+        }
+
+        // Initial Load
+        loadTasks();
+    </script>
+
+</body>
+
+</html>
