@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Elite Collection</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --white: #ffffff;
+            --green: #2ecc71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: var(--dark);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .product-card {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            color: white;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .stat-item span {
+            display: block;
+            font-size: 18px;
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        /* Progress Bar Styles */
+        .progress-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .progress-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 12px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #f1c40f, #2ecc71);
+            transition: width 0.8s ease-in-out;
+            box-shadow: 0 0 10px var(--green);
+        }
+
+        .congrats-msg {
+            display: none;
+            text-align: center;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--green);
+            color: var(--green);
+            margin-top: 20px;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Elite Selection</h1>
+
+        <div class="product-card">
+            <label>Select Your Luxury Asset:</label>
+            <select id="productSelect" onchange="updateDetails()">
+                <option value="0" data-price="0">-- Choose --</option>
+                <option value="1" data-price="850000" data-discount="15">Private Jet - Gulfstream G650</option>
+                <option value="2" data-price="250000" data-discount="10">Vintage Mercedes-Benz 280 SE</option>
+                <option value="3" data-price="12000" data-discount="20">Royal Enfield Continental GT 650</option>
+                <option value="4" data-price="200000" data-discount="12">Rolls-Royce Phantom</option>
+                <option value="5" data-price="250000" data-discount="50">Range Rover</option>
+                <option value="6" data-price="50000" data-discount="80">Bugatti Veyron</option>
+                <option value="7" data-price="506000" data-discount="10">Ferrari La Ferrari</option>
+                <option value="8" data-price="750000" data-discount="40">Lamborghini Aventador</option>
+                <option value="9" data-price="450000" data-discount="60">Porsche 911 Turbo S</option>
+                <option value="10" data-price="1000000" data-discount="30">McLaren P1</option>
+            </select>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">Original Amount <span id="originalPrice">$0</span></div>
+            <div class="stat-item">Savings <span id="savings" style="color: #2ecc71;">$0</span></div>
+            <div class="stat-item">Final Price <span id="finalPrice" style="color: var(--gold);">$0</span></div>
+            <div class="stat-item">Offer Status <span id="offerStatus">0% Applied</span></div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-text" id="progressPercent">0%</div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="barFill"></div>
+            </div>
+        </div>
+
+        <div id="congrats" class="congrats-msg">
+            🎉 Congratulations! You get the Exclusive Founder's Offer! 🥂
+        </div>
+    </div>
+
+    <script>
+        function updateDetails() {
+            const select = document.getElementById('productSelect');
+            const selectedOption = select.options[select.selectedIndex];
+
+            const price = parseFloat(selectedOption.getAttribute('data-price'));
+            const discountPercent = parseFloat(selectedOption.getAttribute('data-discount')) || 0;
+
+            const savings = (price * (discountPercent / 100));
+            const finalPrice = price - savings;
+
+            // Update Text
+            document.getElementById('originalPrice').innerText = price > 0 ? '$' + price.toLocaleString() : '$0';
+            document.getElementById('savings').innerText = savings > 0 ? '$' + savings.toLocaleString() : '$0';
+            document.getElementById('finalPrice').innerText = finalPrice > 0 ? '$' + finalPrice.toLocaleString() : '$0';
+            document.getElementById('offerStatus').innerText = discountPercent + '% Applied';
+            document.getElementById('progressPercent').innerText = discountPercent + '%';
+
+            // Update Progress Bar
+            const bar = document.getElementById('barFill');
+            bar.style.width = discountPercent + '%';
+
+            // Show Congratulations
+            const congrats = document.getElementById('congrats');
+            if (discountPercent > 0) {
+                congrats.style.display = 'block';
+            } else {
+                congrats.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

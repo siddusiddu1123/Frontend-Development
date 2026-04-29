@@ -17,13 +17,9 @@
             --light: #fdfdff;
             --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --glass-bg: rgba(255, 255, 255, 0.95);
-
-            /* Button Gradients */
             --btn-add-bg: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
             --btn-save-bg: linear-gradient(135deg, #0984e3 0%, #6c5ce7 100%);
             --btn-clear-bg: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
-
-            /* Transitions Variables */
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -92,21 +88,16 @@
             box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
         }
 
-        /* --- ACTIONS SECTION (The Center Row) --- */
         .actions {
             display: flex;
             justify-content: center;
-            /* Centers buttons horizontally */
             align-items: center;
             gap: 20px;
-            /* Space between buttons */
             margin-top: 40px;
             padding: 10px;
             flex-wrap: wrap;
-            /* Wrap for mobile screens */
         }
 
-        /* --- TRANSITION BOX BUTTONS --- */
         .actions button {
             padding: 15px 30px;
             border: none;
@@ -119,15 +110,12 @@
             gap: 10px;
             color: white;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-
-            /* Transition Logic */
             transition: var(--transition-bounce);
         }
 
-        /* Transition States */
+
         .actions button:hover {
             transform: translateY(-5px) scale(1.05);
-            /* Moves up and grows */
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
             filter: brightness(1.1);
         }
@@ -136,7 +124,6 @@
             transform: translateY(0) scale(0.95);
         }
 
-        /* Button Gradients */
         .btn-add {
             background: var(--btn-add-bg);
         }
@@ -149,7 +136,6 @@
             background: var(--btn-clear-bg);
         }
 
-        /* Table & Row Styles */
         table {
             width: 100%;
             border-collapse: separate;

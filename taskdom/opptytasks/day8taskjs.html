@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SUN & MOON </title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            body {
+                background: linear-gradient(to bottom, #28d7ff, #89ecff, #ffffff);
+                transition: 2s;
+            }
+
+            body.night {
+                background: linear-gradient(to bottom, #020111, #0c1535, #000);
+            }
+
+            /* MAIN */
+            .scene {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            /* TOP INFO */
+            .top-bar {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 10;
+                color: #fff;
+                text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+            }
+
+            .clock {
+                font-size: 34px;
+                font-weight: bold;
+            }
+
+            .date {
+                font-size: 18px;
+                margin-top: 4px;
+            }
+
+            .message {
+                margin-top: 12px;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            /* WEATHER BOX */
+            .weather {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                z-index: 10;
+                width: 230px;
+                padding: 18px;
+                color: #fff;
+                border-radius: 18px;
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, .12);
+                border: 1px solid rgba(255, 255, 255, .25);
+            }
+
+            .weather h3 {
+                margin-bottom: 10px;
+            }
+
+            .weather p {
+                margin: 8px 0;
+                font-size: 16px;
+            }
+
+            /* ORBIT */
+            .orbit {
+                position: absolute;
+                width: 650px;
+                height: 650px;
+                left: 50%;
+                top: 63%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+            }
+
+            /* SUN */
+            .sun {
+                position: absolute;
+                width: 170px;
+                height: 170px;
+                border-radius: 50%;
+                background: radial-gradient(circle, #fff9a0, #ffd000, #ff8800, #ff3300);
+                box-shadow:
+                    0 0 40px #ffd000,
+                    0 0 90px #ff8800,
+                    0 0 170px rgba(255, 80, 0, .7);
+                animation: spin 6s linear infinite;
+            }
+
+            .sun::before,
+            .sun::after {
+                content: "";
+                position: absolute;
+                inset: -20px;
+                border-radius: 50%;
+                border: 7px solid rgba(255, 140, 0, .25);
+                animation: flare 3s linear infinite;
+            }
+
+            .sun::after {
+                inset: -35px;
+                border: 4px solid rgba(255, 60, 0, .18);
+                animation-duration: 5s;
+            }
+
+            /* MOON */
+            .moon {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: radial-gradient(circle at 35% 35%, #fff, #ddd, #999);
+                box-shadow: 0 0 20px rgba(255, 255, 255, .7);
+                animation: spin 10s linear infinite reverse;
+            }
+
+            .moon::before {
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                top: 18px;
+                left: 20px;
+                border-radius: 50%;
+                background: rgba(80, 80, 80, .2);
+            }
+
+            /* CLOUDS */
+            .cloud {
+                position: absolute;
+                width: 180px;
+                height: 60px;
+                background: rgba(255, 255, 255, .7);
+                border-radius: 50px;
+                filter: blur(2px);
+            }
+
+            .cloud::before,
+            .cloud::after {
+                content: "";
+                position: absolute;
+                background: inherit;
+                border-radius: 50%;
+            }
+
+            .cloud::before {
+                width: 70px;
+                height: 70px;
+                top: -25px;
+                left: 20px;
+            }
+
+            .cloud::after {
+                width: 90px;
+                height: 90px;
+                top: -35px;
+                right: 18px;
+            }
+
+            .c1 {
+                top: 14%;
+                left: -20%;
+                animation: moveCloud 35s linear infinite;
+            }
+
+            .c2 {
+                top: 28%;
+                left: -35%;
+                transform: scale(.8);
+                animation: moveCloud 45s linear infinite;
+            }
+
+            .c3 {
+                top: 42%;
+                left: -45%;
+                transform: scale(.6);
+                animation: moveCloud 55s linear infinite;
+            }
+
+            body.night .cloud {
+                opacity: .12;
+            }
+
+            /* STARS */
+            .star {
+                position: absolute;
+                background: #fff;
+                border-radius: 50%;
+                opacity: 0;
+                transition: 1s;
+                animation: twinkle 3s infinite ease-in-out;
+            }
+
+            /* EFFECTS */
+            .effect {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+
+            /* RAIN */
+            .drop {
+                position: absolute;
+                width: 2px;
+                height: 16px;
+                background: #8fd3ff;
+                opacity: .8;
+                animation: rain 1s linear infinite;
+            }
+
+            /* SNOW */
+            .snow {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background: #fff;
+                border-radius: 50%;
+                animation: snow 6s linear infinite;
+            }
+
+            /* LIGHTNING */
+            .flash {
+                position: absolute;
+                inset: 0;
+                background: #fff;
+                opacity: 0;
+            }
+
+            /* TORNADO */
+            .tornado {
+                position: absolute;
+                bottom: 25vh;
+                left: 75%;
+                width: 70px;
+                height: 140px;
+                border-radius: 50%;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, .4), transparent);
+                filter: blur(8px);
+                animation: tornado 1s linear infinite;
+                display: none;
+            }
+
+            /* MOUNTAINS */
+            .mountains {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 34vh;
+            }
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+
+            /* ANIMATIONS */
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes flare {
+                from {
+                    transform: rotate(0deg) scale(1);
+                }
+
+                50% {
+                    transform: rotate(180deg) scale(1.08);
+                }
+
+                to {
+                    transform: rotate(360deg) scale(1);
+                }
+            }
+
+            @keyframes moveCloud {
+                from {
+                    transform: translateX(0);
+                }
+
+                to {
+                    transform: translateX(140vw);
+                }
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: .1;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes rain {
+                from {
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    transform: translateY(100vh);
+                }
+            }
+
+            @keyframes snow {
+                from {
+                    transform: translateY(-10px) translateX(0);
+                }
+
+                to {
+                    transform: translateY(100vh) translateX(40px);
+                }
+            }
+
+            @keyframes tornado {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+
+<body>
+
+    <div class="scene">
+
+        <div class="top-bar">
+            <div class="clock" id="clock"></div>
+            <div class="date" id="date"></div>
+            <div class="message" id="message">Good Morning</div>
+        </div>
+
+        <div class="weather">
+            <h3 id="weatherName">Sunny</h3>
+            <p id="temp">Temperature: 32°C</p>
+            <p id="rain">Precipitation: 0%</p>
+            <p id="wind">Wind: 10 km/h</p>
+        </div>
+
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+
+        <div class="orbit">
+            <div class="sun" id="sun"></div>
+            <div class="moon" id="moon"></div>
+        </div>
+
+        <div class="effect" id="effect"></div>
+        <div class="flash" id="flash"></div>
+        <div class="tornado" id="tornado"></div>
+
+        <div class="mountains">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path fill="#111" d="M0,120 L0,85 L180,25 L350,95 L600,15 L850,100 L1050,35 L1200,80 L1200,120 Z" />
+            </svg>
+        </div>
+
+    </div>
+
+    <script>
+        const sun = document.getElementById("sun");
+        const moon = document.getElementById("moon");
+        const clock = document.getElementById("clock");
+        const dateBox = document.getElementById("date");
+        const msg = document.getElementById("message");
+
+        const weatherName = document.getElementById("weatherName");
+        const temp = document.getElementById("temp");
+        const rain = document.getElementById("rain");
+        const wind = document.getElementById("wind");
+
+        const effect = document.getElementById("effect");
+        const flash = document.getElementById("flash");
+        const tornado = document.getElementById("tornado");
+
+        let angle = 0;
+        const radius = 280;
+
+        /* stars */
+        for (let i = 0; i < 150; i++) {
+            let s = document.createElement("div");
+            s.className = "star";
+            let size = Math.random() * 3 + 1;
+            s.style.width = size + "px";
+            s.style.height = size + "px";
+            s.style.left = Math.random() * 100 + "vw";
+            s.style.top = Math.random() * 75 + "vh";
+            document.body.appendChild(s);
+        }
+        const stars = document.querySelectorAll(".star");
+
+        /* orbit */
+        function animate() {
+            angle += 0.01;
+
+            let sunX = Math.cos(angle) * radius;
+            let sunY = Math.sin(angle) * radius;
+
+            let moonX = Math.cos(angle + Math.PI) * radius;
+            let moonY = Math.sin(angle + Math.PI) * radius;
+
+            sun.style.left = (radius + sunX) + "px";
+            sun.style.top = (radius + sunY) + "px";
+
+            moon.style.left = (radius + moonX + 35) + "px";
+            moon.style.top = (radius + moonY + 35) + "px";
+
+            if (sunY < 0) {
+                document.body.classList.remove("night");
+                msg.innerText = "Good Morning";
+                stars.forEach(s => s.style.opacity = 0);
+            } else {
+                document.body.classList.add("night");
+                msg.innerText = "Good Night";
+                stars.forEach(s => s.style.opacity = 1);
+            }
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        /* clock */
+        function updateClock() {
+            const now = new Date();
+            clock.innerText = now.toLocaleTimeString();
+            dateBox.innerText = now.toDateString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        /* weather */
+        const weathers = [
+            { name: "Sunny", t: "32°C", p: "0%", w: "10 km/h" },
+            { name: "Cloudy", t: "28°C", p: "10%", w: "14 km/h" },
+            { name: "Rain", t: "24°C", p: "80%", w: "20 km/h" },
+            { name: "Snowy", t: "-2°C", p: "60%", w: "12 km/h" },
+            { name: "Thunder", t: "26°C", p: "70%", w: "28 km/h" },
+            { name: "Tornado", t: "30°C", p: "20%", w: "60 km/h" }
+        ];
+
+        function clearEffects() {
+            effect.innerHTML = "";
+            flash.style.opacity = 0;
+            tornado.style.display = "none";
+        }
+
+        function weatherChange() {
+            clearEffects();
+
+            const item = weathers[Math.floor(Math.random() * weathers.length)];
+
+            weatherName.innerText = item.name;
+            temp.innerText = "Temperature: " + item.t;
+            rain.innerText = "Precipitation: " + item.p;
+            wind.innerText = "Wind: " + item.w;
+
+            if (item.name === "Rain") {
+                for (let i = 0; i < 120; i++) {
+                    let d = document.createElement("div");
+                    d.className = "drop";
+                    d.style.left = Math.random() * 100 + "vw";
+                    d.style.animationDelay = Math.random() + "s";
+                    effect.appendChild(d);
+                }
+            }
+
+            if (item.name === "Snowy") {
+                for (let i = 0; i < 80; i++) {
+                    let s = document.createElement("div");
+                    s.className = "snow";
+                    s.style.left = Math.random() * 100 + "vw";
+                    s.style.animationDelay = Math.random() * 5 + "s";
+                    effect.appendChild(s);
+                }
+            }
+
+            if (item.name === "Thunder") {
+                flash.style.opacity = .9;
+                setTimeout(() => flash.style.opacity = 0, 200);
+            }
+
+            if (item.name === "Tornado") {
+                tornado.style.display = "block";
+            }
+        }
+        weatherChange();
+        setInterval(weatherChange, 8000);
+    </script>
+
+</body>
+
+</html>
