@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Assessment Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1a2a6c, #b21f1f, #fdbb2d);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        input,
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #d4af37, #aa841e);
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #d4af37;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        /* Popup Styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 99;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            z-index: 100;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Popup Alert -->
+    <div id="overlay" class="overlay hide"></div>
+    <div id="popup" class="popup hide">
+        <h2 id="popTitle">Notification</h2>
+        <p id="popMsg" style="margin: 15px 0;"></p>
+        <button class="btn" onclick="closePopup()">CONTINUE</button>
+    </div>
+
+    <div class="container">
+        <!-- Login Page -->
+        <div id="loginPage">
+            <h1>Authentication</h1>
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="password" id="password" placeholder="Password">
+            <button class="btn" onclick="handleLogin()">ENTER SYSTEM</button>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quizPage" class="hide">
+            <h2 id="setLabel" style="color: #d4af37; margin-bottom: 5px;"></h2>
+            <p id="qCount" style="margin-bottom: 15px; font-size: 0.9rem; opacity: 0.7;"></p>
+            <h3 id="qText" style="min-height: 60px;"></h3>
+            <div id="options"></div>
+        </div>
+
+        <!-- Next Set Confirmation -->
+        <div id="nextSetPage" class="hide">
+            <h1>Module Completed</h1>
+            <p id="progressMsg" style="margin: 20px 0; font-size: 1.2rem;"></p>
+            <button id="nextBtn" class="btn" onclick="goToNextSet()">MOVE TO NEXT SET</button>
+        </div>
+
+        <!-- Final Result Page -->
+        <div id="resultPage" class="hide">
+            <h1>Assessment Result</h1>
+            <h2 id="finalScore" style="font-size: 50px; color: #d4af37; margin: 20px 0;"></h2>
+            <p id="eligibility" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;"></p>
+            <button class="btn" onclick="location.reload()">RESTART SYSTEM</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSetIdx = 0;
+        let currentIdx = 0;
+        let score = 0;
+        let activeSet = [];
+
+        const allSets = [
+            // SET 1: CRICKET
+            [
+                { q: "Who has the most international centuries?", o: ["Virat Kohli", "Sachin Tendulkar", "Ricky Ponting", "Brian Lara"], a: "Sachin Tendulkar" },
+                { q: "Which country won the 2023 ICC World Cup?", o: ["India", "Australia", "England", "South Africa"], a: "Australia" },
+                { q: "How many players are on a cricket field per team?", o: ["10", "11", "12", "9"], a: "11" },
+                { q: "Which ground is known as the 'Home of Cricket'?", o: ["MCG", "Lord's", "Eden Gardens", "The Oval"], a: "Lord's" },
+                { q: "Who is known as 'Captain Cool'?", o: ["MS Dhoni", "Kane Williamson", "Eoin Morgan", "Steve Smith"], a: "MS Dhoni" },
+                { q: "What is the length of a cricket pitch?", o: ["20 yards", "22 yards", "24 yards", "18 yards"], a: "22 yards" },
+                { q: "Which bowler has the most Test wickets?", o: ["Shane Warne", "Muralitharan", "James Anderson", "Anil Kumble"], a: "Muralitharan" },
+                { q: "Which country won the first T20 World Cup (2007)?", o: ["Pakistan", "Australia", "India", "West Indies"], a: "India" },
+                { q: "What is a 'Duck' in cricket?", o: ["100 runs", "0 runs", "5 wickets", "A wide ball"], a: "0 runs" },
+                { q: "Which format is played for 5 days?", o: ["T20", "ODI", "Test", "T10"], a: "Test" }
+            ],
+            // SET 2: SOCIAL HISTORY
+            [
+                { q: "Who was the first President of the USA?", o: ["Lincoln", "Washington", "Jefferson", "Roosevelt"], a: "Washington" },
+                { q: "In which year did WWII end?", o: ["1943", "1945", "1944", "1950"], a: "1945" },
+                { q: "Who led the Salt March in India?", o: ["Nehru", "Bose", "Mahatma Gandhi", "Patel"], a: "Mahatma Gandhi" },
+                { q: "Which revolution began in 1789?", o: ["American", "French", "Russian", "Industrial"], a: "French" },
+                { q: "Who wrote the 'I Have a Dream' speech?", o: ["Malcolm X", "Nelson Mandela", "Martin Luther King Jr.", "Obama"], a: "Martin Luther King Jr." },
+                { q: "The Renaissance began in which country?", o: ["France", "Germany", "Italy", "UK"], a: "Italy" },
+                { q: "Who was the 'Iron Lady' of UK politics?", o: ["Indira Gandhi", "Margaret Thatcher", "Angela Merkel", "Queen Victoria"], a: "Margaret Thatcher" },
+                { q: "Which document was signed in 1215?", o: ["Bill of Rights", "Constitution", "Magna Carta", "Peace Treaty"], a: "Magna Carta" },
+                { q: "Who founded the Red Cross?", o: ["Henry Dunant", "Florence Nightingale", "Clara Barton", "Pasteur"], a: "Henry Dunant" },
+                { q: "Apartheid was a policy in which country?", o: ["USA", "India", "South Africa", "Germany"], a: "South Africa" }
+            ],
+            // SET 3: INTERNATIONAL TOPICS
+            [
+                { q: "Where is the UN headquarters?", o: ["Geneva", "Paris", "New York", "Vienna"], a: "New York" },
+                { q: "Which is the largest country by area?", o: ["China", "Canada", "Russia", "USA"], a: "Russia" },
+                { q: "What is the currency of Japan?", o: ["Yuan", "Yen", "Won", "Dollar"], a: "Yen" },
+                { q: "Which organization handles global health?", o: ["UNESCO", "WHO", "IMF", "NATO"], a: "WHO" },
+                { q: "What is the smallest country in the world?", o: ["Monaco", "Vatican City", "Malta", "Maldives"], a: "Vatican City" },
+                { q: "Which canal connects Atlantic and Pacific?", o: ["Suez", "Panama", "Kiel", "Erie"], a: "Panama" },
+                { q: "Which is the longest river in the world?", o: ["Amazon", "Nile", "Yangtze", "Mississippi"], a: "Nile" },
+                { q: "Who is the current UN Secretary-General?", o: ["Kofi Annan", "Ban Ki-moon", "Antonio Guterres", "Donald Trump"], a: "Antonio Guterres" },
+                { q: "Which country is 'Land of the Rising Sun'?", o: ["China", "Japan", "Thailand", "Korea"], a: "Japan" },
+                { q: "What is the capital of Australia?", o: ["Sydney", "Melbourne", "Canberra", "Perth"], a: "Canberra" }
+            ]
+        ];
+
+        const setNames = ["CRICKET", "SOCIAL HISTORY", "INTERNATIONAL TOPICS"];
+
+        function toggle(h, s) {
+            document.getElementById(h).classList.add('hide');
+            document.getElementById(s).classList.remove('hide');
+        }
+
+        function triggerPop(title, msg) {
+            document.getElementById('popTitle').innerText = title;
+            document.getElementById('popMsg').innerText = msg;
+            document.getElementById('overlay').classList.remove('hide');
+            document.getElementById('popup').classList.remove('hide');
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').classList.add('hide');
+            document.getElementById('popup').classList.add('hide');
+        }
+
+        function handleLogin() {
+            if (document.getElementById('email').value && document.getElementById('password').value) {
+                triggerPop("Login Success", "Welcome to the 3-Set Assessment.");
+                toggle('loginPage', 'quizPage');
+                startSet(0);
+            } else alert("Access Denied: Provide Credentials");
+        }
+
+        function startSet(idx) {
+            currentSetIdx = idx;
+            activeSet = allSets[idx];
+            currentIdx = 0;
+            document.getElementById('setLabel').innerText = setNames[idx];
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const data = activeSet[currentIdx];
+            document.getElementById('qCount').innerText = `STEP ${currentIdx + 1} OF 10`;
+            document.getElementById('qText').innerText = data.q;
+            const optBox = document.getElementById('options');
+            optBox.innerHTML = "";
+            data.o.forEach(opt => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.innerText = opt;
+                div.onclick = () => {
+                    if (opt === data.a) score++;
+                    currentIdx++;
+                    if (currentIdx < 10) renderQuestion(); else checkSetFlow();
+                };
+                optBox.appendChild(div);
+            });
+        }
+
+        function checkSetFlow() {
+            if (currentSetIdx < 2) {
+                toggle('quizPage', 'nextSetPage');
+                document.getElementById('progressMsg').innerText = `You finished the ${setNames[currentSetIdx]} set!`;
+                triggerPop("Set Complete", `Great job! Click 'Move to Next Set' to continue.`);
+            } else {
+                finishAll();
+            }
+        }
+
+        function goToNextSet() {
+            toggle('nextSetPage', 'quizPage');
+            startSet(currentSetIdx + 1);
+        }
+
+        function finishAll() {
+            toggle('quizPage', 'resultPage');
+            document.getElementById('finalScore').innerText = `${score} / 30`;
+            if (score >= 15) {
+                document.getElementById('eligibility').innerText = "CONGRATULATIONS! YOU ARE ELIGIBLE.";
+                document.getElementById('eligibility').style.color = "#00ff88";
+            } else {
+                document.getElementById('eligibility').innerText = "NOT ELIGIBLE: SCORE TOO LOW.";
+                document.getElementById('eligibility').style.color = "#ff4d4d";
+            }
+            triggerPop("Final Result", "Your full assessment is complete.");
+        }
+    </script>
+</body>
+
+</html>
